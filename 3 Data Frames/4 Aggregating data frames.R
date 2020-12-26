@@ -1,6 +1,6 @@
 # In the following we aggregate data from the British Election Study 2010
 
-load("Data/bes2010feelings.RData")
+load("bes2010feelings.RData")
 
 # Here we obtain the average affects towards the major three parties, using an
 # 'old-style' call of the function 'aggregate()'

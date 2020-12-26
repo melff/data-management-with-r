@@ -1,5 +1,5 @@
 # Here we merge data from the British Election Study
-load("../Data/bes2010feelings-prepost-for-merge.RData")
+load("bes2010feelings-prepost-for-merge.RData")
 
 # A peek into a data frame about respondents' feelings about
 # parties:

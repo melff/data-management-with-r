@@ -1,4 +1,4 @@
-load("Data/bes2010feelings-prepost.RData")
+load("bes2010feelings-prepost.RData")
 ## Groupwise computations using 'split()' ##############################################
 
 bes2010flngs_pre_long.splt <- split(bes2010flngs_pre_long,

@@ -1,6 +1,6 @@
 # First we load an R data file that contains data from the 2010
 # British election study.
-load("../Data/bes2010feelings-prepost.RData")
+load("bes2010feelings-prepost.RData")
 
 names(bes2010flngs_pre)
 

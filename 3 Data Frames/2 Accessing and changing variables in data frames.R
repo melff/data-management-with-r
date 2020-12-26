@@ -1,4 +1,4 @@
-load("Data/bes2010feelings-prepost.RData")
+load("bes2010feelings-prepost.RData")
 
 c(
     Brown   = mean(bes2010flngs_pre$flng.brown,na.rm=TRUE),

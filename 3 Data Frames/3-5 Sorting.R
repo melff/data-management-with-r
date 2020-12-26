@@ -1,4 +1,4 @@
-load("../Data/bes2010feelings-prepost.RData")
+load("bes2010feelings-prepost.RData")
 source("4 Reshaping-2bes.R")
 
 # Here we use 'order()' 
