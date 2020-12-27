@@ -21,8 +21,8 @@ bes2010flngs_pre_long <- reshape(
                     "flng.salmond","flng.jones",
                     "na","na","na")
               ),
-              v.names=c("flng.party",
-                        "flng.leader"),
+              v.names=c("flng.parties",
+                        "flng.leaders"),
               times=c("Conservative","Labour","LibDem",
                       "SNP","Plaid Cymru",
                       "Green","UKIP","BNP"),
@@ -79,3 +79,4 @@ bes2010flngs_pre_wide <- Reshape(bes2010flngs_pre_long,
 # After reshaping into wide format, the variables that correspond to multiple
 # measures of the same variable are grouped together:
 head(bes2010flngs_pre_wide)
+save(bes2010flngs_pre_long,file="bes2010flngs-pre-long.RData")

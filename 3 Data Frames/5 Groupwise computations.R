@@ -27,8 +27,8 @@ library(memisc)
 Mean <- function(x,...) mean(x,...,na.rm=TRUE)
 bes2010flngs_pre_long <- withinGroups(bes2010flngs_pre_long,
                                       ~id,{
-     rel.flng.party <- flng.party - Mean(flng.party)
-     rel.flng.leader <- flng.leader - Mean(flng.leader)
+     rel.flng.parties <- flng.parties - Mean(flng.parties)
+     rel.flng.leaders <- flng.leaders - Mean(flng.leaders)
     })
 # We use 'head' to look at the first 14 elements of the re-combined data frame
 head(bes2010flngs_pre_long[-(1:2)],n=14)
