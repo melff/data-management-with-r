@@ -1,0 +1,42 @@
+library(memisc)
+## The following code picks up with the British Election Study data of the previous script
+load("BES-1983-classvot.RData")
+
+# This code collapses the categories of the vote variable into just four:
+
+BES.1983.classvot <- within(BES.1983.classvot,{
+    vote.new <- vote
+    vote.new[vote %in% 3:5]        <- 3
+    vote.new[vote %in% c(6:10,97)] <- 4
+})
+# Checking the result:
+codebook(BES.1983.classvot$vote.new)
+
+# It is somewhat more convenient to use the 'recode()' function from the
+# 'memisc' package:
+
+BES.1983.classvot <- within(BES.1983.classvot,{
+    vote.new <- recode(vote,
+                       3 <- 3:5,
+                       4 <- c(6:10,97),
+                       otherwise="copy"
+                       )
+})
+# Checking the result:
+codebook(BES.1983.classvot$vote.new)
+
+# Since 'BES.1983.classvot' is not a data frame, but a "data.set" object, we can
+# provide value labels while recoding:
+
+BES.1983.classvot <- within(BES.1983.classvot,{
+    vote.new <- recode(vote,
+                       Conservative  = 1 <- 1,
+                       Labour        = 2 <- 2,
+                       Alliance      = 3 <- 3:5,
+                       Other         = 4 <- c(6:10,97),
+                       "Didn't vote" = 5 <- 0,
+                       DK            = 8 <- 98,
+                       Refused       = 9 <- 95)
+})
+# Checking the result:
+codebook(BES.1983.classvot$vote.new)

@@ -1,2 +1,5 @@
 /1 Introduction/ab.RData
 .ipynb_checkpoints/
+/social-science-surveys/*.sav
+/social-science-surveys/BES-1983-classvot.RData
+/social-science-surveys/anes2008*.*
