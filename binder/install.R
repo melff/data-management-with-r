@@ -9,3 +9,5 @@ install.packages("rbenchmark")
 
 install.packages("readr")
 install.packages("tidyr")
+
+install.packages("survey")
