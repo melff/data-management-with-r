@@ -3,3 +3,13 @@
 /social-science-surveys/*.sav
 /social-science-surveys/BES-1983-classvot.RData
 /social-science-surveys/anes2008*.*
+/complex-samples/adult.dta
+/complex-samples/anes-2016-prevote-desgn-calib.RData
+/complex-samples/anes-2016-prevote-desgn-post.RData
+/complex-samples/anes-2016-prevote-desgn-rake.RData
+/complex-samples/anes-2016-prevote-desgn.RData
+/complex-samples/anes-2016-prevote.RData
+/complex-samples/anes-2016-vprevote-design.RData
+/complex-samples/anes-2016-vprevote.RData
+/complex-samples/anes_timeseries_2016.sav
+/ipynb2html.py

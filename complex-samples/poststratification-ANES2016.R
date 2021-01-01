@@ -1,0 +1,77 @@
+load("anes-2016-prevote.RData")
+# There must not be any missing values in the stratifying variables.
+anes_2016_vprevote <- subset(anes_2016_prevote,
+                                    vote16 != "Inap" &
+                                    recall12 != "Inap"
+                                    )
+# In order to make poststratification possible, we need to make sure that the
+# levels of the stratification variables match the population
+# information. Therefore we relabel the variables 'recall12' and 'vote16'.
+library(memisc)
+anes_2016_vprevote <- within(anes_2016_vprevote,{
+    recall12 <- recall12[,drop=TRUE]
+    vote16 <- vote16[,drop=TRUE]
+    recall12 <- relabel(recall12,"Did not vote"="No vote")
+    vote16 <- relabel(vote16,
+                      "Will not vote/Not registered"="No vote")
+})
+# Finally, we set up a survey design object
+libary(survey)
+anes_2016_vprevote_desgn <- svydesign(id = ~psu_f2f,
+                                       strata = ~strat_f2f,
+                                       weights = ~pre_w_f2f,
+                                       data = anes_2016_vprevote,
+                                       nest = TRUE)
+save(anes_2016_vprevote,file="anes-2016-vprevote.RData")
+# We collect the electoral results of 2012 
+result.2012 = c(Obama  = 65915795,
+                Romney = 60933504,
+                # Other candidates are combined
+                Other = sum(c(
+                    Johson = 1275971,
+                    Stein  =  469627,
+                    Others =  490510
+                )))
+# The number of non-voters is computed from the sum of the results and census
+# data on the population in voting age 
+result.2012 <- c(result.2012,
+                 "No vote" = 235248000 - sum(result.2012)) 
+
+# Here we collect the results for 2016
+result.2016 <- c(Clinton = 65853514,
+                 Trump   = 62984828,
+                 Other   = sum(c(
+                    Johnson  = 4489341, 
+                    Stein    = 1457218,
+                    McMullin =  731991,
+                    Others   = 1154084 
+                 )))
+result.2016 <- c(result.2016,
+                 "No vote" = 250056000 - sum(result.2016))                 
+
+# The poststratification function expects population data to be in the form of
+# data frames.
+pop.vote16 <- data.frame(
+    vote16=names(result.2016),
+    Freq=result.2016)
+pop.recall12 <- data.frame(
+    recall12=names(result.2012),
+    Freq=result.2012/sum(result.2012)*sum(result.2016)
+)
+save(pop.vote12,pop.vote16,file="popl-results.RData")
+# We poststratify the sample design object by recalled vote in 2012
+anes_2016_prevote_desgn_post <- postStratify(
+    anes_2016_vprevote_desgn,~recall12,population=pop.recall12)
+save(anes_2016_prevote_desgn_post,file="anes-2016-prevote-desgn-post.RData")
+# We compare the estimated percentages of 2012 votes
+100*svymean(~recall12,design=anes_2016_vprevote_desgn)
+100*svymean(~recall12,design=anes_2016_prevote_desgn_post)
+# As should be expected, post-stratification eliminates the uncertainty about
+# 2012 votes. It also corrects for turnout overreporting.
+
+# We now compare the estimated percentages of 2016 votes
+100*svymean(~vote16,design=anes_2016_vprevote_desgn)
+100*svymean(~vote16,design=anes_2016_prevote_desgn_post)
+# The percentages of Clinton voters and Trump voters are closer after
+# poststratification.
+save(anes_2016_prevote_desgn_post,file="anes-2016-prevote-desgn-post.RData")
