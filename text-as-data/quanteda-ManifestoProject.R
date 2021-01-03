@@ -13,7 +13,7 @@ UKLib.rt <- readtext("ManifestoProject/*.csv",
                docvarnames=c("party","date"))
 nrow(UKLib.rt)
 
-# Here we cerate an index of documents in the corpus:
+# Here we create an index of documents in the corpus:
 UKLib.rta <- aggregate(text~party+date,
                        FUN=function(x)paste(x,collapse=" "),
                        data=UKLib.rt)
