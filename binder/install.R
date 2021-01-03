@@ -19,3 +19,8 @@ install.packages("sp")
 install.packages("cshapes")
 install.packages("units")
 install.packages("lwgeom")
+
+install.packages("tm")
+install.packages("quanteda")
+install.packages("readtext")
+
