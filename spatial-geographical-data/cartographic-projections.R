@@ -1,4 +1,5 @@
 ## Geographical projections of a mainland USA map (with apologies to Alaskans and Hawaiians)
+library(sf)
 
 load("US_flat.RData")
 US_flat

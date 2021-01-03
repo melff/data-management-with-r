@@ -1,3 +1,8 @@
+library(sf)
+
+load("south-america-1990.RData")
+load("three-countries.RData")
+
 st_area(Brazil)
 
 in_km2 <- function(x) units::set_units(x,"km^2")

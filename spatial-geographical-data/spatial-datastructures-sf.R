@@ -1,4 +1,4 @@
-# The data used here is available from https://ucdp.uu.se/downloads/index.html#ged_global
+# The data used here is available from https://ucdp.uu.se/downloads/ged/ged191-RData.zip
 unzip("ged191-RData.zip")
 load("ged191.RData")
 

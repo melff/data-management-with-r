@@ -29,4 +29,4 @@ structure(
    dimnames=list(rownames(ThreeCountries),rownames(ThreeCountries))
 )
 
-save(ThreeCountries,ThreeCapitals,file="three-capitals.RData")
+save(ThreeCountries,ThreeCapitals,file="three-countries.RData")
