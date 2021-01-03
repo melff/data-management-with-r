@@ -11,3 +11,8 @@ install.packages("readr")
 install.packages("tidyr")
 
 install.packages("survey")
+install.packages("sf")
+install.packages("sp")
+install.packages("cshapes")
+install.packages("units")
+install.packages("lwgeom")
