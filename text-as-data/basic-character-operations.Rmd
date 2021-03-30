@@ -1,0 +1,78 @@
+# Basic operations on character strings
+
+## `length()` versus `nchar()`
+
+```{r}
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+```
+
+```{r}
+some_great_rock_bands <- c("Led Zeppelin","Pink Floyd","Queen")
+```
+
+```{r}
+length(some_great_rock_bands)
+```
+
+```{r}
+nchar(some_great_rock_bands)
+```
+
+## Character vector subsets versus substrings
+
+```{r}
+some_great_rock_bands <- c("Led Zeppelin","Pink Floyd","Queen")
+```
+
+```{r}
+some_great_rock_bands[1:2]
+```
+
+```{r}
+substr(some_great_rock_bands,start=1,stop=2)
+```
+
+```{r}
+substr(some_great_rock_bands,start=6,stop=15)
+```
+
+## Finding patterns within character strings and character vectors
+
+```{r}
+some_great_rock_bands <- c("Led Zeppelin","Pink Floyd","Queen")
+```
+
+```{r}
+grep("Zeppelin",some_great_rock_bands) # Just the indices
+```
+
+```{r}
+grep("Zeppelin",some_great_rock_bands, value=TRUE) # the elements
+```
+
+```{r}
+grepl("Zeppelin",some_great_rock_bands)
+```
+
+```{r}
+grep("[ei]n$",some_great_rock_bands,value=TRUE)
+```
+
+
+## Replacing patterns within character strings and character vectors
+
+```{r}
+some_great_rock_bands <- c("Led Zeppelin","Pink Floyd","Queen")
+```
+
+```{r}
+sub("e","i",some_great_rock_bands)
+```
+
+```{r}
+gsub("e","i",some_great_rock_bands)
+```
+
+```{r}
+gsub("([aeiouy]+)","[\\1]",some_great_rock_bands)
+```

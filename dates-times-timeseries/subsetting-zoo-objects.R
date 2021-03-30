@@ -1,6 +1,17 @@
+#' # Subsetting "zoo" objects
+
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+
+#' The following makes use of the *zoo* package. You may need to install it from
+#' [CRAN](https://cran.r-project.org/package=zoo) using the code
+#' `install.packages("zoo")` if you want to run this on your computer. (The
+#' package is already installed on the notebook container, however.)
+
 library(zoo)
 
 as.yearqtr("1945 Q2")
+
+#' The file "zpresidents.RData" was created in an earlier example.
 
 load("zpresidents.RData")
 
@@ -11,7 +22,10 @@ zpresidents[qtrs3]
 
 qtrs <- paste(rep(1960:1964,each=4),rep(4:1,4),sep="-")
 qtrs
+
 zpresidents[as.yearqtr(qtrs)]
+
+load("unemployment-z.RData")
 
 unemployment.z[as.Date("1997-12-31")]
 

@@ -1,10 +1,26 @@
-## Preparing Data from the 1983 British Election Study ##############################################
-## (Note that the data must be downloaded from a different website.)
+#' # Importing data from the British Election Study in SPSS format
+
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+
+#' In order to run this notebook successfully, you have to download the 1983 British Election Study from the [BES website](https://www.britishelectionstudy.com/data-object/1983-bes-cross-section/) and upload it to the virtual machine on which this notebook runs. To do this, 
+#'
+#' 1. pull down the "File" menu item and select "Open"
+#' 2. An overview of the folder that contains the notebook opens. 
+#' 3. The folder view has a button labelled "Upload". Use this to upload the file that you downloaded from the BES website. Its name should be `83BES.sav`.
+#'
+#' Note that the uploaded data will disappear, when the notebook container is reset.
+#'
+#' The following also makes use of the *memisc* package. You may need to install it
+#' from [CRAN](https://cran.r-project.org/package=memisc) using the code
+#' `install.packages("memisc")` if you want to run this on your computer. (The package is already installed on
+#' the notebook container, however.)
 
 library(memisc) # The functions used here are in this package.
+
 # The first step: Optainin the location and description of the survey data file
 BES.1983.por <- spss.portable.file("83BES.sav")
-description(BES.1983.por)
+
+description(BES.1983.por[1:30])
 
 # The second step: Loading a subset of the data - only the variables that are
 # really needed for the analysis.
@@ -50,7 +66,6 @@ codebook(BES.1983.classvot["age"])
 missing.values(BES.1983.classvot$age) <- 99
 
 # Declaring several missing values
-
 BES.1983.classvot <- within(BES.1983.classvot,{
     missing.values(voted)     <- 9
     missing.values(vote)      <- 95:99
@@ -69,5 +84,10 @@ BES.1983.classvot <- within(BES.1983.classvot,{
 # The codebook of the resulting data set object
 codebook(BES.1983.classvot)
 
+options(jupyter.rich_display=TRUE)
+show_html(codebook(BES.1983.classvot)) # Same information in HTML format
+
 save(BES.1983.classvot,
      file="BES-1983-classvot.RData")
+
+

@@ -1,0 +1,62 @@
+# Properties of spatial objects
+
+```{r}
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+```
+
+The following code makes use of two packages:
+- the *sf* package, which is available from https://cran.r-project.org/package=sf
+- the *units* package, which is available from https://cran.r-project.org/package=units
+To run the code of this notebook you can install the packages by `install.packages(c("sf","units"))`. However, they are already installed in the container on which this example is run.
+
+
+```{r}
+library(sf)
+```
+
+The files "south-america-1990.RData" and "three-countries.RData" were created in a previous example.
+
+```{r}
+load("south-america-1990.RData")
+load("three-countries.RData")
+```
+
+```{r}
+st_area(Brazil)
+```
+
+```{r}
+in_km2 <- function(x) units::set_units(x,"km^2")
+in_km2(st_area(Brazil))
+```
+
+```{r}
+in_km2(st_area(SthAmCountries))
+```
+
+```{r}
+structure(in_km2(st_area(SthAmCountries)),
+          names=as.character(SthAmCountries$CNTRY_NAME))
+```
+
+```{r}
+st_distance(Brasilia,Bogota)
+```
+
+```{r}
+st_distance(Chile,Bogota)
+```
+
+```{r}
+# This takes a while, because R needs to figure out which points of the borders are the closest to one another
+st_distance(Chile,Colombia)
+```
+
+```{r}
+in_km <- function(x) units::set_units(x,"km")
+in_km(st_distance(Brasilia,Bogota))
+```
+
+```{r}
+in_km(st_distance(ThreeCapitals))
+```

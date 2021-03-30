@@ -1,12 +1,17 @@
-# First we load an R data file that contains data from the 2010
-# British election study.
+#' # Reshaping data frames: An example with data from the British Election Study
+
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+
+#' First we load an R data file that contains data from the 2010
+#' British election study. Here we use data from the British Election Study 2010. The data set [bes2010feelings-prepost.RData](https://github.com/melff/dataman-r/raw/main/data-frames/bes2010feelings-prepost.RData) is prepared from the original available at https://www.britishelectionstudy.com/data-object/2010-bes-cross-section/ by removing identifying information and scrambling the data.
+
 load("bes2010feelings-prepost.RData")
 
 names(bes2010flngs_pre)
 
-# A sensible way to bring these data into long format would be to have the
-# feelings towards the parties and their leaders as multiple measurements.
-# Therefore we reshape the data in the appropriate long format:
+#' A sensible way to bring these data into long format would be to have the
+#' feelings towards the parties and their leaders as multiple measurements.
+#' Therefore we reshape the data in the appropriate long format:
 
 bes2010flngs_pre_long <- reshape(
               within(bes2010flngs_pre,
@@ -30,9 +35,13 @@ bes2010flngs_pre_long <- reshape(
               direction="long")
 head(bes2010flngs_pre_long,n=14)
 
+#' The fellowing demostrates the convenience variant of `reshape()` provided by the *memisc* package, the function `Reshape()`. You may need to install this package using `install.packages("memisc")` from 
+#' [CRAN](https://cran.r-project.org/package=memisc) if you want to run this on your computer. (Package is already installed on the notebook container, however.)
+
 library(memisc)
-# With the 'Reshape' function the syntax is a bit
-# simpler than with 'reshape' from the "stats" package:
+
+#' With the `Reshape()` function the syntax is simpler than with `reshape()` from the *stats* package:
+
 bes2010flngs_pre_long <- Reshape(bes2010flngs_pre,
        # Note that "empty" places designate measurement
        # occastions that are to be filled with NAs.
@@ -51,13 +60,15 @@ bes2010flngs_pre_long <- Reshape(bes2010flngs_pre,
                "Green","UKIP","BNP"),
        direction="long")
 
-# In long format the observations are sorted such that the variable that
-# distinguishes measurement occasions (the party variable) 
-# changes faster than the variable that distinguishes individuals:
+#' In long format the observations are sorted such that the variable that
+#' distinguishes measurement occasions (the party variable) 
+#' changes faster than the variable that distinguishes individuals:
+
 head(bes2010flngs_pre_long)
 
-# Like with 'reshape', reshaping back from long into wide format takes (almost) the
-# same syntax as reshaping from wide into long format:
+#' Like with `reshape()`, reshaping back from long into wide format takes (almost) the
+#' same syntax as reshaping from wide into long format:
+
 bes2010flngs_pre_wide <- Reshape(bes2010flngs_pre_long,
        # Note that "empty" places designate measurement
        # occastions that are to be filled with NAs.
@@ -76,7 +87,11 @@ bes2010flngs_pre_wide <- Reshape(bes2010flngs_pre_long,
                "Green","UKIP","BNP"),
        direction="wide")
 
-# After reshaping into wide format, the variables that correspond to multiple
-# measures of the same variable are grouped together:
+#' After reshaping into wide format, the variables that correspond to multiple
+#' measures of the same variable are grouped together:
+
 head(bes2010flngs_pre_wide)
+
 save(bes2010flngs_pre_long,file="bes2010flngs-pre-long.RData")
+
+

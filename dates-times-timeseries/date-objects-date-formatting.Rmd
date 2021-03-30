@@ -1,0 +1,29 @@
+# Date objects and date formatting
+
+```{r}
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+```
+
+```{r}
+as.Date(20,origin="1970-01-01")
+```
+
+```{r}
+d <- as.Date("1990-11-09")
+```
+
+```{r}
+format(d,"%e %B % Y")
+```
+
+```{r}
+format(d,"%b %d, %y")
+```
+
+```{r}
+format(d,"%Y-%m-%d")
+```
+
+```{r}
+as.Date("11/09/90", format="%m/%d/%y")
+```

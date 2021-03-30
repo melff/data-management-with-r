@@ -1,6 +1,18 @@
+#' # Subsetting data with *dplyr*
+
+#' The following makes use of the *dplyr* package. You may need to install it
+#' from [CRAN](https://cran.r-project.org/package=data.table) using the code
+#' `install.packages("dplyr")` if you want to run this on your computer. (The package is already installed on
+#' the notebook container, however.)
+
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+
+#' Here we use data from the British Election Study 2010. The data set [bes2010feelings.RData](https://github.com/melff/dataman-r/raw/main/data-frames/bes2010feelings.RData) is prepared from the original available at https://www.britishelectionstudy.com/data-object/2010-bes-cross-section/ by removing identifying information and scrambling the data.
+
 load("bes2010feelings.RData")
 
 library(dplyr)
+
 bes2010feelings.sub <- bes2010feelings %>%
                             filter(region == "Scotland") %>%
                             select(wave,
@@ -8,3 +20,7 @@ bes2010feelings.sub <- bes2010feelings %>%
                                    flng.cameron,
                                    flng.clegg,
                                    flng.salmond)
+
+head(bes2010feelings.sub)
+
+

@@ -1,0 +1,42 @@
+# Merging (multivariate) time series
+
+```{r}
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+```
+
+The following makes use of the *zoo* package. You may need to install it from
+[CRAN](https://cran.r-project.org/package=zoo) using the code
+`install.packages("zoo")` if you want to run this on your computer. (The
+package is already installed on the notebook container, however.)
+
+```{r}
+library(zoo)
+```
+
+The file "zpresidents.RData" was created in an earlier example.
+
+```{r}
+load("unemployment-z.RData")
+```
+
+```{r}
+Netherlands <- unemployment.z[,4]
+length(Netherlands)
+```
+
+```{r}
+Belgium <- unemployment.z[,5]
+length(Belgium)
+```
+
+```{r}
+Luxembourg <- na.omit(unemployment.z[,6])
+length(Luxembourg)
+```
+
+```{r}
+unemployment.benelux <- merge(Netherlands,
+                              Belgium,
+                              Luxembourg)
+head(unemployment.benelux,n=10)
+```

@@ -1,3 +1,7 @@
+#' # Logical vectors
+
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+
 ## Comparisons
 x <- -3:3
 x

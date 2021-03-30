@@ -1,5 +1,10 @@
-# Here we construct the data frame that contains the first two rows
-# of the data in wide format in the previous illustration.
+#' # Reshaping data frames: An example with artificial data
+
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+
+#' Here we construct the data frame that contains the first two rows
+#' of the data in wide format in the previous illustration.
+
 example.data.wide <- data.frame(
     id = 1:2,
     v  = c(35,42),
@@ -11,7 +16,8 @@ example.data.wide <- data.frame(
     y3 = c(2.9,3.9))
 example.data.wide
 
-# We now call 'reshape()' to cast the data into long format
+#' We now call `reshape()` to cast the data into long format
+
 example.data.long <- reshape(data=example.data.wide,
                              varying=list(
                                  # The first group of variables 
@@ -27,9 +33,10 @@ example.data.long <- reshape(data=example.data.wide,
                              direction="long")
 example.data.long
 
-# In order to change the data from long into wide format, we can
-# use almost the same function call, the only difference being
-# the 'direction=' argument.
+#' In order to change the data from long into wide format, we can
+#' use almost the same function call, the only difference being
+#' the `direction=` argument.
+
 example.data.wide.a <- reshape(data=example.data.long,
                                varying=list(
                                  # The first group of variables 
@@ -44,6 +51,9 @@ example.data.wide.a <- reshape(data=example.data.long,
                                times=1:3,
                                direction="wide")
 
-# The second call of 'reshape' does not completely revert the first call,
-# because the order of the variables now is different:
+#' The second call of `reshape` does not completely revert the first call,
+#' because the order of the variables now is different:
+
 example.data.wide.a
+
+

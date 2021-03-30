@@ -1,15 +1,32 @@
+#' # Creating a "zoo" object from OECD unemployment data
+
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+
+#' The data file ["unemployment.csv"](https://github.com/melff/dataman-r/raw/main//dates-times-timeseries/OECD-unemployment.R) used below consists of data originally downloaded from the [OECD Database website](https://data.oecd.org).
+
 unemployment <- read.csv("unemployment.csv")
+
+#' The following makes use of the *zoo* package. You may need to install it from
+#' [CRAN](https://cran.r-project.org/package=zoo) using the code
+#' `install.packages("zoo")` if you want to run this on your computer. (The
+#' package is already installed on the notebook container, however.)
+
+library(zoo)
+
 unemployment.z <- zoo(unemployment[,2:7],
                       order.by=as.Date(
                           ISOdate(year=unemployment[,1],
                                   month=12,
                                   day=31)))
+
 dim(unemployment.z)
+
 class(unemployment.z)
 
 head(unemployment.z)
 
 start(unemployment.z)
+
 end(unemployment.z)
 
 end(unemployment.z) - start(unemployment.z)

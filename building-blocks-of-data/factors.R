@@ -1,3 +1,6 @@
+#' # Factors
+
+options(jupyter.rich_display=FALSE) # Create output as usual in R
 set.seed(42)
 
 satisfaction <- sample(1:4,size=20,replace=TRUE)
@@ -28,7 +31,7 @@ country
 country <- factor(country.orig,
                   levels=c("England","Wales","Scotland",
                            "Northern Ireland"))
-country 
+country
 
 table(country)
 
@@ -38,4 +41,5 @@ as.numeric(country)
 
 levels(country) <- c("EN","NI","SC","WL")
 table(country)
+
 

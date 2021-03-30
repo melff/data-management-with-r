@@ -1,7 +1,15 @@
+#' # Filling and completing with *tidyr*
+#'
+#' The following makes use of the packages *tidyr* and *readr*. You may need to install them from [CRAN](https://cran.r-project.org) using the code `install.packages(c("tidyr","readr"))` if you want to run this on your computer. 
+#' (The packages are already installed
+#' on the notebook container, however.)
+
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+
+#' Filling missing values with `fill()`
+
 library(tidyr)
 library(readr)
-
-## Filling missing values with 'fill()' #############################################################
 
 messy_data_str <- "
 country,  year,var1, var2
@@ -23,6 +31,8 @@ messy_data
 messy_data %>% fill(country) -> filled_data
 filled_data
 
-## Completing data by missing values with 'complete()' ##############################################
+#' Completing data by missing values with `complete()`
 
 filled_data %>% complete(crossing(country,year))
+
+

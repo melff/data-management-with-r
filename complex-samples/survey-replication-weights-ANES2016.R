@@ -1,25 +1,46 @@
+#' # Creating replicate weights for a survey design object (with ANES 2016 data).
+
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+
+#' The following line loads data created with a previous *R* script or notebook.
+
 load("anes-2016-prevote-desgn.RData")
+
+#' The following makes use of the *survey* package. You may need to install it from
+#' [CRAN](https://cran.r-project.org/package=survey) using the code
+#' `install.packages("survey")` if you want to run this on your computer. (The
+#' package is already installed on the notebook container, however.)
+
 library(survey)
 
-# The 'automatic' type gives jackknife replicates
+#' The 'automatic' type gives jackknife replicates
+
 anes_2016_prevote_jk <- as.svrepdesign(anes_2016_prevote_desgn,
                                        type="auto")
-# The number of replicates is determined by the number of clusters
+
+#' The number of replicates is determined by the number of clusters
+
 anes_2016_prevote_jk
-# Here we select the multistage rescaled bootstrap
+
+#' Here we select the multistage rescaled bootstrap
+
 anes_2016_prevote_boo <- as.svrepdesign(anes_2016_prevote_desgn,
                                         type="mrbbootstrap")
+
 anes_2016_prevote_boo
-# By default the number of bootstrap replicates is 50, we can
-# change it to 200
+
+#' By default the number of bootstrap replicates is 50, we can
+#' change it to 200
 
 anes_2016_prevote_boo <- as.svrepdesign(anes_2016_prevote_desgn,
                                         type="mrbbootstrap",
                                         replicates=200)
+
 anes_2016_prevote_boo
 
-# A function to compute the percentage of 2012 Democratic and Republican voters
-# who vote for a candidate of the same party in 2016
+#' A function to compute the percentage of 2012 Democratic and Republican voters
+#' who vote for a candidate of the same party in 2016:
+
 StayerPerc <- function(weights,data){
     tab <- xtabs(weights~vote16+recall12,data=data)
     # Remove 'inap' responses
@@ -35,7 +56,8 @@ StayerPerc <- function(weights,data){
                       "Republican"))
 }
 
-# Estimates and replication based standard errors based on jackknife 
+#' Estimates and replication based standard errors based on jackknife 
+
 withReplicates(anes_2016_prevote_jk,
                 StayerPerc)
 

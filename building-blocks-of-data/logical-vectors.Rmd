@@ -1,0 +1,72 @@
+# Logical vectors
+
+```{r}
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+```
+
+```{r}
+## Comparisons
+x <- -3:3
+x
+```
+
+```{r}
+x == 0
+```
+
+```{r}
+x <- -3:3
+y <- c(1:3,0,1:3)
+x == y
+```
+
+```{r}
+## Logical operators
+a <- c(TRUE,FALSE,TRUE,FALSE)
+b <- c(TRUE,TRUE,FALSE,FALSE)
+```
+
+```{r}
+a & b
+```
+
+```{r}
+a | b
+```
+
+```{r}
+!a
+```
+
+```{r}
+a & !b
+```
+
+```{r}
+!(a | b)
+```
+
+```{r}
+x <- -3:3
+```
+
+```{r}
+x > 1 & x < -1
+```
+
+```{r}
+x > 1 | x < -1
+```
+
+```{r}
+a <- c(TRUE,FALSE,NA,TRUE,FALSE,NA,TRUE,FALSE,NA)
+b <- c(TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,NA,NA,NA)
+```
+
+```{r}
+a & b
+```
+
+```{r}
+a | b
+```

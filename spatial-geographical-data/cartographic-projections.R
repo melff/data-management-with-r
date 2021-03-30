@@ -1,4 +1,7 @@
-## Geographical projections of a mainland USA map (with apologies to Alaskans and Hawaiians)
+#' # Geographical projections of a mainland USA map
+
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+
 library(sf)
 
 load("US_flat.RData")

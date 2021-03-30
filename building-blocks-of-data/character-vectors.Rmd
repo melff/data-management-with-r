@@ -1,0 +1,70 @@
+# Character vectors
+
+```{r}
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+```
+
+```{r}
+Beatles <- c("John", "Paul", "George", "Ringo")
+Beatles
+```
+
+```{r}
+paste("one","and","only")
+```
+
+```{r}
+paste(Beatles, collapse=" & ")
+```
+
+```{r}
+First <- c("Mick","Keith","Ronnie","Charlie")
+Last <- c("Jagger","Richards","Wood","Watts")
+```
+
+```{r}
+paste(First,Last)
+```
+
+```{r}
+paste(First,Last,sep="_")
+```
+
+```{r}
+Beatles <- c("John", "Paul", "George", "Ringo")
+```
+
+```{r}
+substr(Beatles,1,2)
+```
+
+```{r}
+substr(Beatles,1:4,2:5)
+```
+
+```{r}
+Led.Zeppelin.song <- "Whole Lotta Love"
+ACDC.song <- sub("Love","Rosie",Led.Zeppelin.song)
+print(ACDC.song)
+```
+
+```{r}
+onetofour <- 1:4
+names(onetofour) <- c("first","second","third","fourth")
+```
+
+```{r}
+names(onetofour)
+```
+
+```{r}
+onetofour
+```
+
+```{r}
+print(onetofour)
+```
+
+```{r}
+
+```

@@ -1,4 +1,12 @@
+#' # Accessing and changing variables
+
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+
+#' Here we use data from the British Election Study 2010. The data set [bes2010feelings-prepost.RData](https://github.com/melff/dataman-r/raw/main/data-frames/bes2010feelings-prepost.RData) is prepared from the original available at https://www.britishelectionstudy.com/data-object/2010-bes-cross-section/ by removing identifying information and scrambling the data.
+
 load("bes2010feelings-prepost.RData")
+
+#' ## `with()` versus `attach()`
 
 c(
     Brown   = mean(bes2010flngs_pre$flng.brown,na.rm=TRUE),
@@ -8,9 +16,12 @@ c(
     Jones   = mean(bes2010flngs_pre$flng.jones,na.rm=TRUE)
 )
 
+## Here we define a convenience function.
+Mean <- function(x,...) mean(x,na.rm=TRUE,...)
 
 ## Use of 'attach'
-Mean <- function(x,...) mean(x,na.rm=TRUE,...)
+
+# The following code shows how the use of 'attach' can lead to confusion
 attach(bes2010flngs_pre)
 c(
     Brown   = Mean(flng.brown),
@@ -59,7 +70,7 @@ with(bes2010flngs_post,c(
     Jones   = Mean(flng.jones)
 ))
 
-## Changing variables within a data frame #################################################
+#' ## Changing variables within a data frame 
 
 bes2010flngs_pre <- within(bes2010flngs_pre,{
     ave_flng <- (flng.brown + flng.cameron + flng.clegg)/3
@@ -67,6 +78,12 @@ bes2010flngs_pre <- within(bes2010flngs_pre,{
     rel_flng.cameron <- flng.cameron - ave_flng
     rel_flng.clegg   <- flng.clegg - ave_flng
 })
+
+with(bes2010flngs_pre,c(
+    Brown   = Mean(rel_flng.brown),
+    Cameron = Mean(rel_flng.cameron),
+    Clegg   = Mean(rel_flng.clegg)
+))
 
 # It is also possible without 'within()' but this is terribly tedious:
 bes2010flngs_pre$ave_flng <- (bes2010flngs_pre$flng.brown +
@@ -78,3 +95,9 @@ bes2010flngs_pre$rel_flng.cameron <- (bes2010flngs_pre$flng.cameron
                                       - bes2010flngs_pre$ave_flng)
 bes2010flngs_pre$rel_flng.clegg   <- (bes2010flngs_pre$flng.clegg
                                       - bes2010flngs_pre$ave_flng)
+
+with(bes2010flngs_pre,c(
+    Brown   = Mean(rel_flng.brown),
+    Cameron = Mean(rel_flng.cameron),
+    Clegg   = Mean(rel_flng.clegg)
+))

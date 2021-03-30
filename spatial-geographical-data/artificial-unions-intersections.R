@@ -1,4 +1,17 @@
+#' # Unions and intersections (of artificial geometric objects)
+
+#+ slideshow={'slide_type': 'fragment'}
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+
+#' The following makes use of the *sf* package. You may need to install it from
+#' [CRAN](https://cran.r-project.org/package=sf) using the code
+#' `install.packages("sf")` if you want to run this on your computer. (The
+#' package is already installed on the notebook container, however.)
+
+#+ slideshow={'slide_type': 'fragment'}
 library(sf)
+
+#+ slideshow={'slide_type': 'subslide'}
 A <- rbind(
     c(0,0),
     c(2,0),
@@ -15,31 +28,43 @@ B <- rbind(
 )
 B <- st_polygon(list(B))
 
-op <- par(mai=c(0,0,0,0),mfrow=c(1,3),xpd=NA)
+#+ slideshow={'slide_type': 'subslide'}
+A
+
+#+ slideshow={'slide_type': 'fragment'}
+B
+
+#+ slideshow={'slide_type': 'subslide'}
 plot(A,xlim=c(-1,2),ylim=c(-1,2))
 plot(B,lty=2,add=TRUE)
 text(0,1.5,"A",pos=2)
 text(1,-.5,"B",pos=4)
 text(.5,-1.5,"Two shapes A and B",pos=1)
+
+#+ slideshow={'slide_type': 'subslide'}
 plot(st_union(A,B),col="gray70",xlim=c(-1,2),ylim=c(-1,2))
 plot(A,lty=3,add=TRUE)
 plot(B,lty=3,add=TRUE)
 text(.5,-1.5,"st_union(A,B)",pos=1)
+
+#+ slideshow={'slide_type': 'subslide'}
 plot(A,lty=3,xlim=c(-1,2),ylim=c(-1,2))
 plot(B,lty=3,add=TRUE)
 plot(st_intersection(A,B),add=TRUE,col="gray70")
 text(.5,-1.5,"st_intersection(A,B)",pos=1)
-par(op)
 
-op <- par(mai=c(0,0,0,0),mfrow=c(1,3),xpd=NA)
+#+ slideshow={'slide_type': 'subslide'}
 plot(st_difference(A,B),col="gray70",,xlim=c(-1,2),ylim=c(-1,2))
 plot(A,lty=3,add=TRUE)
 plot(B,lty=3,add=TRUE)
 text(.5,-1.5,"st_difference(A,B)",pos=1)
+
+#+ slideshow={'slide_type': 'subslide'}
 plot(st_difference(B,A),col="gray70",,xlim=c(-1,2),ylim=c(-1,2))
 plot(A,lty=3,add=TRUE)
 plot(B,lty=3,add=TRUE)
 text(.5,-1.5,"st_difference(B,A)",pos=1)
+
+#+ slideshow={'slide_type': 'subslide'}
 plot(st_sym_difference(A,B),col="gray70",,xlim=c(-1,2),ylim=c(-1,2))
 text(.5,-1.5,"st_sym_difference(A,B)",pos=1)
-par(op)

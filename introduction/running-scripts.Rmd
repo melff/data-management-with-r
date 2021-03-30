@@ -1,0 +1,12 @@
+<!-- #region nteract={"transient": {"deleting": false}} -->
+# Running scripts
+<!-- #endregion -->
+
+```{r}
+## Running a script with and without echo
+source("source-echo-demo.R")
+```
+
+```{r}
+source("source-echo-demo.R",echo=TRUE)
+```

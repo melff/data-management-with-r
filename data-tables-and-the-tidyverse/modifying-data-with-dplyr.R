@@ -1,3 +1,12 @@
+#' # Modifying data with the *dplyr* package
+
+#' The following makes use of the *dplyr* package. You may need to install it
+#' from [CRAN](https://cran.r-project.org/package=dplyr) using the code
+#' `install.packages("dplyr")` if you want to run this on your computer. (The package is already installed on
+#' the notebook container, however.)
+
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+
 library(dplyr)
 
 UK <- data.frame(
@@ -11,7 +20,8 @@ UK <- data.frame(
 
 UK %>% mutate(Density = Population/Area)
 
-# Equivalent code using 'base' R:
+#' Equivalent code using 'base' R:
 
 within(UK, Density <- Population/Area)
+
 

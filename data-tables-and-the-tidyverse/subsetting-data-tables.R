@@ -1,10 +1,21 @@
+#' # Subsetting data tables
+
+#' The following makes use of the *data.table* package. You may need to install it
+#' from [CRAN](https://cran.r-project.org/package=data.table) using the code
+#' `install.packages("data.table")` if you want to run this on your computer. (The package is already installed on
+#' the notebook container, however.)
+
+options(jupyter.rich_display=FALSE) # Create output as usual in R, but make it wider
+
 library(data.table)
+
 load("bes2010feelings.RData")
 setDT(bes2010feelings)
 
 sctl2010feelings <- bes2010feelings[region=="Scotland"]
-bes2010feelings.srtd <- bes2010feelings[order(wave,region)]
+head(sctl2010feelings)
 
+bes2010feelings.srtd <- bes2010feelings[order(wave,region)]
 
 bes2010feelings.sub <- bes2010feelings[,.(flng.brown,wave,region)]
 names(bes2010feelings.sub)
@@ -20,4 +31,7 @@ sctl2010feelings <- bes2010feelings[region=="Scotland",
                                       flng.clegg,
                                       flng.salmond)]
 str(sctl2010feelings)
+
 head(sctl2010feelings)
+
+

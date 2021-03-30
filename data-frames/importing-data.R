@@ -1,17 +1,33 @@
-## Importing data from text files #####################################################
+#' # Importing data into data frames
 
-# Importing CSV data:
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+
+#' This notebook makes use of the following files:
+#'
+#' - [ConstituencyResults2010.csv](https://raw.githubusercontent.com/melff/dataman-r/main/data-frames/ConstituencyResults2010.csv)
+#' - [ConstituencyResults2010-nohdr.csv](https://raw.githubusercontent.com/melff/dataman-r/main/data-frames/ConstituencyResults2010-nohdr.csv)
+#' - [ConstituencyResults2010.tsv](https://raw.githubusercontent.com/melff/dataman-r/main/data-frames/ConstituencyResults2010.tsv)
+#' - [ConstituencyResults2010.sav](https://raw.githubusercontent.com/melff/dataman-r/main/data-frames/ConstituencyResults2010.sav)
+#' - [ConstituencyResults2010.por](https://raw.githubusercontent.com/melff/dataman-r/main/data-frames/ConstituencyResults2010.por)
+#' - [ConstituencyResults2010.dta](https://raw.githubusercontent.com/melff/dataman-r/main/data-frames/ConstituencyResults2010.dta)
+#' - [ConstituencyResults2010-stata-new.dta](https://raw.githubusercontent.com/melff/dataman-r/main/data-frames/ConstResults2010-stata-new.dta)
+#'
+#' Currently, these Data files are also available from https://www.pippanorris.com/data.
+#' (Previously they were available from http://www.hks.harvard.edu/fs/pnorris/Data/Data.htm.) 
+#'
+
+#' ## Importing data from text files
+
+#' Importing CSV data:
+
 # We inspect the text file using 'readLines()'
-
 readLines("ConstituencyResults2010.csv",n=5)
 
 # For the actual import we use 'read.csv()'
-
 ConstRes2010 <- read.csv("ConstituencyResults2010.csv")
 ConstRes2010[1:5,]
 
 # A CSV file without a variable name header
-
 readLines("ConstituencyResults2010-nohdr.csv",n=5)
 
 ConstRes2010 <- read.csv("ConstituencyResults2010-nohdr.csv",
@@ -19,24 +35,21 @@ ConstRes2010 <- read.csv("ConstituencyResults2010-nohdr.csv",
 ConstRes2010[1:5,]
 
 # Importing tab-delimited data:
-
 readLines("ConstituencyResults2010.tsv",n=5)
 
 ConstRes2010 <- read.delim("ConstituencyResults2010.tsv")
 ConstRes2010[1:5,]
 
-
-## Importing fixed-width data:
+#' Importing fixed-width data:
 
 readLines("ConstituencyResults2010-fwf.txt",n=5)
 
 ConstRes2010 <- read.fwf("ConstituencyResults2010-fwf.txt",
                          widths=c(3,4,4,4,4,4,4,4,4))
+ConstRes2010[1:5,]
 
-
-## Importing data from other statistics packages ####################################
-
-# Importing data using the 'foreign' package
+#' ## Importing data from other statistics packages
+#' Importing data using the *foreign* package
 
 library(foreign)
 
@@ -56,4 +69,5 @@ ConstRes2010[1:5,]
 
 # The following does not work - newer Stata format is not supported
 ConstRes2010 <- read.dta("ConstResults2010-stata-new.dta")
+
 

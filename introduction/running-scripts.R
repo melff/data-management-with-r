@@ -1,3 +1,5 @@
+#' # Running scripts
+
 ## Running a script with and without echo
 source("source-echo-demo.R")
 

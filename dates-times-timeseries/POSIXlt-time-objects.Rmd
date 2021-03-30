@@ -1,0 +1,48 @@
+# POSIXlt time objects
+
+```{r}
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+```
+
+```{r}
+t0 <- as.POSIXlt(0,origin="2020-02-01",tz="GMT")
+```
+
+```{r}
+(t1 <- as.POSIXlt(t0 + 3630))
+```
+
+```{r}
+# Get the seconds component of the time point
+t1$sec
+```
+
+```{r}
+# Get the minutes component of the time point
+t1$min
+```
+
+```{r}
+# Get the hours component
+t1$hour
+```
+
+```{r}
+# Get the day(s) of the month
+t1$mday
+```
+
+```{r}
+# Get the (numeric) month
+t1$mon
+```
+
+```{r}
+# Get the (numeric) year
+t1$year
+```
+
+```{r}
+# Get the (numeric) day of the week
+t1$wday
+```

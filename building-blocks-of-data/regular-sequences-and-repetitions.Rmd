@@ -1,0 +1,33 @@
+# Regular sequences
+
+```{r}
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+```
+
+```{r}
+1:10
+```
+
+```{r}
+seq(from=1,to=10)
+```
+
+```{r}
+seq(from=2,to=10,by=2)
+```
+
+```{r}
+seq(to=49,length.out=5,by=7)
+```
+
+```{r}
+rep(1:5,3)
+```
+
+```{r}
+rep(1:5,each=3)
+```
+
+```{r}
+
+```

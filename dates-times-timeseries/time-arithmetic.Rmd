@@ -1,0 +1,28 @@
+# Time arithmetic
+
+```{r}
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+```
+
+```{r}
+# When in standard format, a string does not need a format spefication in order
+# to be translatable
+t0 <- as.POSIXct("2020-02-01 00:00",tz="GMT")
+t0
+```
+
+```{r}
+# Adding 3600 seconds means adding an hour:
+t0 + 3600
+```
+
+```{r}
+# Subtracting seconds may also change the date:
+t0 - 1
+```
+
+```{r}
+# A day is 24 times 3600 seconds
+day <- 24*3600
+t0 + day
+```

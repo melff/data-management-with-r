@@ -1,3 +1,10 @@
+#' # Creating data tables
+
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+
+#' The following makes use of the *data.table* package. You may need to install it from [CRAN](https://cran.r-project.org/package=data.table) using the code `install.packages("data.table")` if you want to run this on your computer. (The package is already installed on the
+#'  notebook container, however.)
+
 library(data.table)
 
 UK <- data.table(
@@ -9,6 +16,7 @@ UK <- data.table(
                          "Scotland",
                          "Wales"))
 UK
+
 class(UK)
 
 DT <- data.table(
@@ -19,3 +27,5 @@ DT
 load("bes2010feelings.RData")
 setDT(bes2010feelings)
 class(bes2010feelings)
+
+

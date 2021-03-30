@@ -1,23 +1,40 @@
-# First, we import some Manifesto Project data
+#' # An example for the use of *tm* on data from the Manifesto Project
+
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+
+#' The file CSV-files in folder "Manifesto Project"
+#' were downloaded from the [Manifesto Project website](https://manifesto-project.wzb.eu/datasets).
+#' Redistribution of the data is prohibited, so readers who want to reproduce the following will need to download their own copy of the data set and upload it to the virtual machine that runs this notebook. To do this,
+#'
+#' 1. pull down the "File" menu item and select "Open"
+#' 2. An overview of the folder that contains the notebook opens.
+#' 3. The folder view has a button labelled "Upload". Use this to upload the file that you downloaded from the Manifesto Project website.
+#'
+#' Note that the uploaded data will disappear, once you "Quit" the notebook (and the Jupyter instance).
 
 # The Manifesto Project data is contained in a collection of CSV files
 csv.files <- dir("ManifestoProject",full.names=TRUE,
                  pattern="*.csv")
 csv.files
 
-# This file contains the relevant metadata:
+#' The file [documents_MPDataset_MPDS2019b.csv](documents_MPDataset_MPDS2019b.csv) contains the relevant metadata. The original in Excel format 
+#' is [available (without registration)](https://manifesto-project.wzb.eu/down/data/2019b/codebooks/documents_MPDataset_MPDS2019b.xlsx) from the Manifesto Project web site.
+
 manifesto.metadata <- read.csv("documents_MPDataset_MPDS2019b.csv",
                                stringsAsFactors=FALSE)
-# It is available (withou registration) from
-# https://manifesto-project.wzb.eu/down/data/2019b/codebooks/documents_MPDataset_MPDS2019b.xlsx
-# in Excel format
+
+#' The following makes use of the *tm* package. You may need to install it from
+#' [CRAN](https://cran.r-project.org/package=tm) using the code
+#' `install.packages("tm")` if you want to run this on your computer. (The
+#' package is already installed on the notebook container, however.)
+
+library(tm)
 
 # The following code does not work, due to the peculiar structure of the CSV files
 manifesto.corpus <- VCorpus(DirSource("ManifestoProject"))
 
 # To deal with the problem created by the peculiar structure of the files, we
 # define a helper function:
-
 getMDoc <- function(file,metadata.file){
     df <- read.csv(file,
                    stringsAsFactors=FALSE)
@@ -55,11 +72,11 @@ UKLib.docs <- lapply(csv.files,getMDoc,
                      metadata.file=manifesto.metadata)
 UKLib.Corpus <- as.VCorpus(UKLib.docs)
 UKLib.Corpus
+
 UKLib.Corpus[[14]]
 
 # We need to deal with the non-ASCII characters, so we define yet another helper
 # function:
-
 handleUTF8quotes <- function(x){
     cx <- content(x)
     cx <- gsub("\xe2\x80\x98","'",cx)
@@ -75,10 +92,21 @@ handleUTF8quotes <- function(x){
 }
 
 # Another helper function is needed to change the texts into lowercase:
-
 toLower <- function(x) {
     content(x) <- tolower(content(x))
     x
+}
+
+# We overwrite the 'inspect' method for "TextDocument" objects to a variant that shows only the first
+# 20 lines:
+inspect.TextDocument <- function(x){
+    print(x)
+    cat("\n")
+    str <- as.character(x)
+    str <- substr(x,start=0,stop=500)
+    str <- paste(str,"... ...")
+    writeLines(str)
+    invisible(x)
 }
 
 UKLib.Corpus.processed <- tm_map(UKLib.Corpus,handleUTF8quotes)
@@ -87,10 +115,6 @@ inspect(UKLib.Corpus.processed[[14]])
 
 UKLib.Corpus.processed <- tm_map(UKLib.Corpus.processed,removeNumbers)
 UKLib.Corpus.processed <- tm_map(UKLib.Corpus.processed,removePunctuation)
-inspect(UKLib.Corpus.processed[[14]])
-
-UKLib.Corpus.processed <- tm_map(UKLib.Corpus.processed,removeWords,stopwords("english"))
-UKLib.Corpus.processed <- tm_map(UKLib.Corpus.processed,stripWhitespace)
 inspect(UKLib.Corpus.processed[[14]])
 
 UKLib.Corpus.processed <- tm_map(UKLib.Corpus.processed,stemDocument)
@@ -111,3 +135,4 @@ UKLib.dtm <- DocumentTermMatrix(
         language="en",
         stemming=TRUE
     ))
+UKLib.dtm

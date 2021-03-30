@@ -1,10 +1,16 @@
+#' # Artificial time series data
+
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+
 x <- round(rnorm(1:12),1)
 
 ts(x,start=2000,
    frequency=4)
 
-ts(x,start=2000,
-   frequency=12)
+print(ts(x,start=2000,
+       frequency=12))
+
+#' The data file ["unemployment.csv"](https://github.com/melff/dataman-r/raw/main//dates-times-timeseries/OECD-unemployment.R) used below consists of data originally downloaded from the [OECD Database website](https://data.oecd.org).
 
 unemployment <- read.csv("unemployment.csv")
 # This is of course incorrect, but demonstrates how monthly multivariate time 

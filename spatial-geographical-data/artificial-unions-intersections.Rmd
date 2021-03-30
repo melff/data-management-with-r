@@ -1,0 +1,85 @@
+<!-- #region slideshow={"slide_type": "slide"} -->
+# Unions and intersections (of artificial geometric objects)
+<!-- #endregion -->
+
+```{r slideshow={'slide_type': 'fragment'}}
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+```
+
+<!-- #region slideshow={"slide_type": "fragment"} -->
+The following makes use of the *sf* package. You may need to install it from
+[CRAN](https://cran.r-project.org/package=sf) using the code
+`install.packages("sf")` if you want to run this on your computer. (The
+package is already installed on the notebook container, however.)
+<!-- #endregion -->
+
+```{r slideshow={'slide_type': 'fragment'}}
+library(sf)
+```
+
+```{r slideshow={'slide_type': 'subslide'}}
+A <- rbind(
+    c(0,0),
+    c(2,0),
+    c(0,2),
+    c(0,0)
+)
+A <- st_polygon(list(A))
+B <- rbind(
+    c( 1, 1),
+    c( 1,-1),
+    c(-1,-1),
+    c(-1, 1),
+    c( 1, 1)
+)
+B <- st_polygon(list(B))
+```
+
+```{r slideshow={'slide_type': 'subslide'}}
+A
+```
+
+```{r slideshow={'slide_type': 'fragment'}}
+B
+```
+
+```{r slideshow={'slide_type': 'subslide'}}
+plot(A,xlim=c(-1,2),ylim=c(-1,2))
+plot(B,lty=2,add=TRUE)
+text(0,1.5,"A",pos=2)
+text(1,-.5,"B",pos=4)
+text(.5,-1.5,"Two shapes A and B",pos=1)
+```
+
+```{r slideshow={'slide_type': 'subslide'}}
+plot(st_union(A,B),col="gray70",xlim=c(-1,2),ylim=c(-1,2))
+plot(A,lty=3,add=TRUE)
+plot(B,lty=3,add=TRUE)
+text(.5,-1.5,"st_union(A,B)",pos=1)
+```
+
+```{r slideshow={'slide_type': 'subslide'}}
+plot(A,lty=3,xlim=c(-1,2),ylim=c(-1,2))
+plot(B,lty=3,add=TRUE)
+plot(st_intersection(A,B),add=TRUE,col="gray70")
+text(.5,-1.5,"st_intersection(A,B)",pos=1)
+```
+
+```{r slideshow={'slide_type': 'subslide'}}
+plot(st_difference(A,B),col="gray70",,xlim=c(-1,2),ylim=c(-1,2))
+plot(A,lty=3,add=TRUE)
+plot(B,lty=3,add=TRUE)
+text(.5,-1.5,"st_difference(A,B)",pos=1)
+```
+
+```{r slideshow={'slide_type': 'subslide'}}
+plot(st_difference(B,A),col="gray70",,xlim=c(-1,2),ylim=c(-1,2))
+plot(A,lty=3,add=TRUE)
+plot(B,lty=3,add=TRUE)
+text(.5,-1.5,"st_difference(B,A)",pos=1)
+```
+
+```{r slideshow={'slide_type': 'subslide'}}
+plot(st_sym_difference(A,B),col="gray70",,xlim=c(-1,2),ylim=c(-1,2))
+text(.5,-1.5,"st_sym_difference(A,B)",pos=1)
+```

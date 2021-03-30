@@ -1,0 +1,75 @@
+# Lists
+
+```{r}
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+Sys.setlocale(category="LC_ALL",locale="C")
+```
+
+```{r}
+AList <- list(1:5,
+              letters[1:6],
+              c(TRUE,FALSE,FALSE,TRUE))
+AList
+```
+
+```{r}
+AList[1:2]
+```
+
+```{r}
+AList[1]
+```
+
+```{r}
+AList[[2]]
+```
+
+```{r}
+AList[[1:2]]
+```
+
+```{r}
+AList[[1:3]]
+```
+
+```{r}
+length(AList)
+```
+
+```{r}
+FDR <- list(c("John","Delano"),
+            c("Roosevelt"))
+```
+
+```{r}
+names(FDR) <- c("first.name","last.name")
+FDR
+```
+
+```{r}
+FDR <- list(first.name=c("John","Delano"),
+            last.name=c("Roosevelt"))
+FDR
+```
+
+```{r}
+FDR$last.name
+```
+
+```{r}
+FDR[["last.name"]]
+```
+
+```{r}
+UK <- list(
+    country.name = c("England","Northern Ireland","Scotland",
+                                                  "Wales"),
+    population   = c(54786300,1851600,5373000,3099100),
+    area.sq.km   = c(130279,13562,77933,20735),
+    GVA.cap      = c(26159,18584,23685,18002))
+UK
+```
+
+```{r}
+data.frame(UK)
+```

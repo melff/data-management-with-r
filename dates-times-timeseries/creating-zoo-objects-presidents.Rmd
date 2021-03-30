@@ -1,0 +1,56 @@
+# Creating a "zoo" object from the `presidents` time series
+
+```{r}
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+```
+
+`presidents` is already available as part of a standard *R* installation.
+
+```{r}
+npresidents <- as.numeric(presidents)
+```
+
+The following makes use of the *zoo* package. You may need to install it from
+[CRAN](https://cran.r-project.org/package=zoo) using the code
+`install.packages("zoo")` if you want to run this on your computer. (The
+package is already installed on the notebook container, however.)
+
+```{r}
+library(zoo)
+```
+
+```{r}
+years <- 1945:1974
+quarters <- 1:4
+presi.times <- yearqtr(
+    rep(years,each=4) +  # each year is repeated 4 times
+    rep((quarters-1)/4,30) # the quarters are repeated 30 times
+)
+zpresidents <- zoo(npresidents,order.by=presi.times)
+zpresidents
+```
+
+```{r}
+str(zpresidents)
+```
+
+```{r}
+coredata(zpresidents)[1:15] # To save space we only look at the
+```
+
+```{r}
+index(zpresidents)[1:15]    # first 15 elements.
+```
+
+```{r}
+time(zpresidents)[1:15]
+```
+
+```{r}
+zpresidents[1:8]
+```
+
+```{r}
+# Saved for later use:
+save(zpresidents,file="zpresidents.RData")
+```

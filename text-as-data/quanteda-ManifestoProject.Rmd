@@ -1,0 +1,164 @@
+# Preparing Manifesto Project data using *quanteda*
+
+```{r}
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+options(width=120)
+```
+
+The file CSV-files in folder "Manifesto Project"
+were downloaded from the [Manifesto Project website](https://manifesto-project.wzb.eu/datasets).
+Redistribution of the data is prohibited, so readers who want to preproduce the following will need to download their own copy of the data set and upload it to the virtual machine that runs this notebook. To do this,
+
+1. pull down the "File" menu item and select "Open"
+2. An overview of the folder that contains the notebook opens.
+3. The folder view has a button labelled "Upload". Use this to upload the file that you downloaded from the Manifesto Project website.
+
+Note that the uploaded data will disappear, once you "Quit" the notebook (and the Jupyter instance).
+
+```{r}
+csv.files <- dir("ManifestoProject",
+                 full.names=TRUE,
+                 pattern="*.csv")
+length(csv.files)
+```
+
+The package *readtext* (a companion package for *quanteda*) is somewhat better able to
+deal with the Manfisto Project CSV files than *tm*. It is available from [CRAN](https://cran.r-project.org/package=readtext). You may need to install it the code
+`install.packages("quanteda")` if you want to run this on your computer. (The
+package is already installed on the notebook container, however.)
+
+```{r}
+library(readtext)
+UKLib.rt <- readtext("ManifestoProject/*.csv",
+               text_field=1,
+               docvarsfrom="filenames",
+               docvarnames=c("party","date"))
+nrow(UKLib.rt)
+```
+
+Here we create an index of documents in the corpus:
+
+```{r}
+UKLib.rta <- aggregate(text~party+date,
+                       FUN=function(x)paste(x,collapse=" "),
+                       data=UKLib.rt)
+nrow(UKLib.rta)
+```
+
+```{r}
+UKLib.rta <- within(UKLib.rta,
+              doc_id <- paste(party,date,sep="_"))
+```
+
+The following makes use of the *quanteda* package. You may need to install it from
+[CRAN](https://cran.r-project.org/package=quanteda) using the code
+`install.packages("quanteda")` if you want to run this on your computer. (The
+package is already installed on the notebook container, however.)
+
+```{r}
+library(quanteda)
+```
+
+```{r}
+UKLib.corpus <- corpus(UKLib.rta)
+UKLib.corpus
+```
+
+Here we combine metadata with the text documents:
+
+```{r}
+manifesto.metadata <- read.csv("documents_MPDataset_MPDS2019b.csv",stringsAsFactors=FALSE)
+str(manifesto.metadata)
+```
+
+```{r}
+docvars(UKLib.corpus) <- merge(docvars(UKLib.corpus),
+                               manifesto.metadata,
+                               by=c("party","date"))
+str(docvars(UKLib.corpus))
+```
+
+Finally we create a document-feature matrix, without punctuation, numbers,
+symbols and stopwords:
+
+```{r}
+UKLib.dfm <- dfm(UKLib.corpus,
+                 remove_punct=TRUE,
+                 remove_numbers=TRUE,
+                 remove_symbols=TRUE,
+                 remove=stopwords("english"),
+                 stem=TRUE)
+str(docvars(UKLib.dfm))
+```
+
+A more fine-grained control is possible using `tokens()`:
+
+```{r}
+UKLib.toks <- tokens(UKLib.corpus,
+                     remove_punct=TRUE,
+                     remove_numbers=TRUE)
+UKLib.toks
+```
+
+```{r}
+UKLib.dfm <- dfm(UKLib.toks)
+UKLib.dfm
+```
+
+```{r}
+UKLib.dfm <- dfm_remove(UKLib.dfm,
+                        pattern=stopwords("english"))
+UKLib.dfm
+```
+
+```{r}
+UKLib.dfm <- dfm_wordstem(UKLib.dfm,language="english")
+UKLib.dfm
+```
+
+*quanteda* provides support for dictionaries:
+
+```{r}
+milecondict <- dictionary(list(
+                Military=c("military","forces","war","defence","victory","victorious","glory"),
+                Economy=c("economy","growth","business","enterprise","market")
+))
+```
+
+Here we extract the frequency of tokens belonging to certain dictionaries:
+
+```{r}
+UKLib.milecon.dfm <- dfm(UKLib.corpus,
+                         dictionary=milecondict)
+UKLib.milecon.dfm
+```
+
+```{r}
+time <- with(docvars(UKLib.milecon.dfm),
+             ISOdate(year=date%/%100,
+                     month=date%%100,
+                     day=1))
+time
+```
+
+```{r}
+UKLib.ntok <- ntoken(UKLib.corpus)
+```
+
+```{r}
+milit.freq <- as.vector(UKLib.milecon.dfm[,"Military"])
+econ.freq <- as.vector(UKLib.milecon.dfm[,"Economy"])
+milit.prop <- milit.freq/UKLib.ntok
+econ.prop <- econ.freq/UKLib.ntok
+```
+
+We plot the frequency of tokens over time:
+
+```{r}
+op <- par(mfrow=c(2,1),mar=c(3,4,0,0))
+plot(time,milit.prop,type="p",ylab="Military")
+lines(time,lowess(time,milit.prop)$y)
+plot(time,econ.prop,type="p",ylab="Economy")
+lines(time,lowess(time,econ.prop)$y)
+par(op)
+```

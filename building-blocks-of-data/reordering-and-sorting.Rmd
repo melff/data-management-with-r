@@ -1,0 +1,72 @@
+# Reordering and sorting elements of a vector
+
+```{r}
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+```
+
+```{r}
+set.seed(231)
+```
+
+```{r}
+x <- rnorm(n=10)
+x
+```
+
+```{r}
+x.srt <- sort(x)
+x.srt
+```
+
+```{r}
+sort(x,decreasing=TRUE)
+```
+
+```{r}
+stex <- c("1","11","A","a","Ab","AB","ab","aB","B","b","bb")
+sort(stex)
+```
+
+```{r}
+set.seed(2134)
+x <- rnorm(6)
+x
+```
+
+```{r}
+y <- rnorm(6)
+y
+```
+
+```{r}
+ii <- order(x)
+```
+
+```{r}
+x.ordered <- x[ii]
+y.ordered <- y[ii]
+```
+
+```{r}
+x.ordered
+```
+
+```{r}
+y.ordered
+```
+
+```{r}
+jj <- order(ii)
+```
+
+```{r}
+all(x.ordered[jj] == x)
+```
+
+```{r}
+all(y.ordered[jj] == y)
+```
+
+```{r}
+
+```

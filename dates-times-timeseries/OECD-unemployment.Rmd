@@ -1,0 +1,34 @@
+# OECD unemployment data
+
+```{r}
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+```
+
+The data file ["unemployment.csv"](https://github.com/melff/dataman-r/raw/main//dates-times-timeseries/OECD-unemployment.R) used below consists of data originally downloaded from the [OECD Database website](https://data.oecd.org).
+
+```{r}
+unemployment <- read.csv("unemployment.csv")
+```
+
+```{r}
+unemployment.ts <- ts(unemployment[2:5],
+                      start = 1970)
+```
+
+```{r}
+plot(unemployment.ts)
+```
+
+```{r}
+window(unemployment.ts,
+       start=1980,
+       end=1989)
+```
+
+```{r}
+delta.unemployment.ts <- diff(unemployment.ts)
+```
+
+```{r}
+plot(delta.unemployment.ts)
+```

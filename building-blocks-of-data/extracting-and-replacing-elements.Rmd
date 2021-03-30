@@ -1,0 +1,64 @@
+# Extracting and replacing elements of a vector
+
+```{r}
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+```
+
+```{r}
+x <- c(10, 12, 30, 14, 50)
+```
+
+```{r}
+x[1]
+```
+
+```{r}
+x[5]
+```
+
+```{r}
+x[c(2,4,6)]
+```
+
+```{r}
+x[c(1,1,1,2,2)]
+```
+
+```{r}
+x[-c(1,3,5)]
+```
+
+```{r}
+x[c(FALSE,TRUE,FALSE,TRUE,FALSE)]
+```
+
+```{r}
+x[x>=20]
+```
+
+```{r}
+names(x) <- c("a","b","c","d","e")
+```
+
+```{r}
+x[c("a","c")]
+```
+
+```{r}
+set.seed(231)
+y <- rnorm(n=12)
+```
+
+```{r}
+y[1:4] <- 0
+y
+```
+
+```{r}
+y <- rnorm(n=12)
+```
+
+```{r}
+y[y < 0] <- 0
+y
+```

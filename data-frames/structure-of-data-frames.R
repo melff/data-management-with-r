@@ -1,4 +1,8 @@
-## Data frame construction ##########################################################
+#' # The structure of data frames
+
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+
+#' ## Data frame construction
 
 # First create a few vectors from which we construct the data frame:
 population  <- c(55619400,1885400,5424800,3125000)
@@ -13,6 +17,7 @@ names(UK) <- c("Population","Area","GVA")
 UK
 
 row.names(UK)
+
 row.names(UK) <- c("England",
                    "Northern Ireland",
                    "Scotland",
@@ -32,32 +37,42 @@ UK <- data.frame(
 UK
 
 nrow(UK)
+
 ncol(UK)
+
 dim(UK)
 
-# In what follows we treat the data frame 'UK' as a list:
+#' ## In what follows we treat the data frame 'UK' as a list:
 
 # Here we get the variable 'Population':
 UK$Population
+
 # Analoguously, one can use the double bracket-operator ('[[]]')
 # to get the variable 'Population':
 UK[["Population"]]
+
 # Also the single bracket-operator works as with lists.
 # We get a data frame of the first two variables in
 # the data frame
 UK[1:2]
+
 # Now we get a data frame with the variables named 'Population' and
 # 'GVA'
 UK[c("Population","GVA")]
 
-# In the next few lines show the selection of rows and columns of a data frame
+#' ## In the next few lines show the selection of rows and columns of a data frame
 
 # We select the first two rows of the
 # data frame 'UK' by just using their numbers:
 UK[1:2,]
+
 # By referring to row names, we select Scotland and Wales:
 UK[c("Scotland","Wales"),]
+
 # As in a previous example, we select the first two columns ...
 UK[,1:2]
+
 # and the variables named 'Population' and 'GVA'
 UK[,c("Population","GVA")]
+
+

@@ -1,0 +1,35 @@
+# Geographical projections of a mainland USA map
+
+```{r}
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+```
+
+```{r}
+library(sf)
+```
+
+```{r}
+load("US_flat.RData")
+US_flat
+```
+
+```{r}
+plot(st_geometry(US_flat),
+     graticule=TRUE,axes=TRUE)
+```
+
+```{r}
+bbox_US <- st_bbox(US_flat)
+```
+
+```{r}
+c(xcenter = mean(bbox_US[c("xmin","xmax")]),
+  ycenter = mean(bbox_US[c("ymin","ymax")]))
+```
+
+```{r}
+laea <- st_crs("+proj=laea +lon_0=-95.8 +lat_0=37.3")
+US_proj <- st_transform(US_flat,laea)
+plot(st_geometry(US_proj),
+     graticule=TRUE,axes=TRUE)
+```

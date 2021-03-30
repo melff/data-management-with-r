@@ -1,0 +1,89 @@
+# Creating replicate weights for a survey design object (with ANES 2016 data).
+
+```{r}
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+```
+
+The following line loads data created with a previous *R* script or notebook.
+
+```{r}
+load("anes-2016-prevote-desgn.RData")
+```
+
+The following makes use of the *survey* package. You may need to install it from
+[CRAN](https://cran.r-project.org/package=survey) using the code
+`install.packages("survey")` if you want to run this on your computer. (The
+package is already installed on the notebook container, however.)
+
+```{r}
+library(survey)
+```
+
+The 'automatic' type gives jackknife replicates
+
+```{r}
+anes_2016_prevote_jk <- as.svrepdesign(anes_2016_prevote_desgn,
+                                       type="auto")
+```
+
+The number of replicates is determined by the number of clusters
+
+```{r}
+anes_2016_prevote_jk
+```
+
+Here we select the multistage rescaled bootstrap
+
+```{r}
+anes_2016_prevote_boo <- as.svrepdesign(anes_2016_prevote_desgn,
+                                        type="mrbbootstrap")
+```
+
+```{r}
+anes_2016_prevote_boo
+```
+
+By default the number of bootstrap replicates is 50, we can
+change it to 200
+
+```{r}
+anes_2016_prevote_boo <- as.svrepdesign(anes_2016_prevote_desgn,
+                                        type="mrbbootstrap",
+                                        replicates=200)
+```
+
+```{r}
+anes_2016_prevote_boo
+```
+
+A function to compute the percentage of 2012 Democratic and Republican voters
+who vote for a candidate of the same party in 2016:
+
+```{r}
+StayerPerc <- function(weights,data){
+    tab <- xtabs(weights~vote16+recall12,data=data)
+    # Remove 'inap' responses
+    tab <- tab[-6,-5]
+    # Column percentages
+    ptab <- 100*prop.table(tab,2)
+    # The diagonal are the percentages of 'stayers'
+    # among the voters of 2012.
+    # The first two elements of the diagonal are
+    # the Democratic and Republican stayers.
+    structure(diag(ptab)[1:2],
+              names=c("Democratic",
+                      "Republican"))
+}
+```
+
+Estimates and replication based standard errors based on jackknife 
+
+```{r}
+withReplicates(anes_2016_prevote_jk,
+                StayerPerc)
+```
+
+```{r}
+withReplicates(anes_2016_prevote_boo,
+                StayerPerc)
+```

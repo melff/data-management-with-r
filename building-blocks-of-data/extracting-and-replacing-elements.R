@@ -1,3 +1,7 @@
+#' # Extracting and replacing elements of a vector
+
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+
 x <- c(10, 12, 30, 14, 50)
 
 x[1]
@@ -19,7 +23,6 @@ names(x) <- c("a","b","c","d","e")
 x[c("a","c")]
 
 set.seed(231)
-
 y <- rnorm(n=12)
 
 y[1:4] <- 0

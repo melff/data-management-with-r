@@ -1,0 +1,75 @@
+# Reshaping data to wide format with *tidyr*
+
+
+The following makes use of the packages *tidyr* and *readr*. You may need to
+install them from [CRAN](https://cran.r-project.org) using the code
+`install.packages(c("tidyr","readr"))` if you want to run this on your computer. (The packages are already installed
+on the notebook container, however.)
+
+```{r}
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+```
+
+```{r}
+substr(readLines("inequality-oecd-downloaded.csv",n=5),
+       start=1,stop=40)
+```
+
+```{r}
+library(readr)
+```
+
+```{r}
+inequality.oecd.dld <- read_csv("inequality-oecd-downloaded.csv")
+```
+
+```{r}
+inequality.oecd.dld
+```
+
+```{r}
+library(tidyr)
+```
+
+```{r}
+inequality.oecd.dld %>% spread(key="SUBJECT",value="Value") ->
+                                               inequality.oecd
+```
+
+```{r}
+inequality.oecd[-c(2,4,6)]
+```
+
+```{r}
+library(dplyr)
+```
+
+```{r}
+inequality.oecd.sub <- select(inequality.oecd.dld,
+                              LOCATION,SUBJECT,TIME,Value)
+inequality.oecd.sub
+```
+
+```{r}
+inequality.oecd.sub %>% spread(key=SUBJECT,
+                               value=Value) -> inequality.oecd
+```
+
+```{r}
+inequality.oecd
+```
+
+```{r}
+inequality.oecd.dld %>% pivot_wider(names_from=SUBJECT,
+                                    values_from=Value,
+                                    id_cols=c(LOCATION,TIME)) ->
+                                                inequality.oecd
+```
+
+```{r}
+inequality.oecd
+```
+
+```{r}
+
+```

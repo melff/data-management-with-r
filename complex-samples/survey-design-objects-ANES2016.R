@@ -1,9 +1,30 @@
+#' # Constructing a survey design object from data of the 2016 American Election   Study.
+
+options(jupyter.rich_display=FALSE) # Create output as usual in R
+
+#' The following makes use of the *memisc* package. You may need to install it from
+#' [CRAN](https://cran.r-project.org/package=memisc) using the code
+#' `install.packages("memisc")` if you want to run this on your computer. (The
+#' package is already installed on the notebook container, however.)
+
 library(memisc)
+
+#' The the code makes used of the data file "`anes_timeseries_2016.sav`", which is not included in the supporting material. In order to 
+#' obtain this data file (and run this notebook successufully), you need to download them from 
+#' the [ANES website for 2016](https://electionstudies.org/data-center/2016-time-series-stud/) and upload them to the virtual
+#' machine that runs this notebook. To do this, 
+#'
+#' 1. pull down the "File" menu item and select "Open"
+#' 2. An overview of the folder that contains the notebook opens. 
+#' 3. The folder view has a button labelled "Upload". Use this to upload the file that you downloaded from the ANES website.
+#'
+#' Note that the uploaded data will disappear, once you "Quit" the notebook (and the Jupyter instance).
 
 anes_2016_sav <- spss.file("anes_timeseries_2016.sav")
 
-# Loading a subset: Only pre-election waves and only
-# face-to-face interviews
+#' Loading a subset: Only pre-election waves and only
+#' face-to-face interviews
+
 anes_2016_pre_work_ds <- subset(anes_2016_sav,
                                 V160501 == 1,
                                 select=c(
@@ -51,16 +72,23 @@ anes_2016_pre_work_ds %<>% within({
     vote16[] <- ifelse(vote16 == 99 & vote16_1 != 99,
                        vote16_1,
                        vote16)
+    measurement(pre_w_f2f) <- "ratio"
 })
 
 anes_2016_prevote <- as.data.frame(anes_2016_pre_work_ds)
 save(anes_2016_prevote,file="anes-2016-prevote.RData")
+
 #Unweighted crosstable
 xtabs(~ vote16 + recall12,
       data=anes_2016_prevote)
 
+#' The following makes use of the *survey* package. You may need to install it from
+#' [CRAN](https://cran.r-project.org/package=survey) using the code
+#' `install.packages("survey")` if you want to run this on your computer. (The
+#' package is already installed on the notebook container, however.)
 
 library(survey)
+
 anes_2016_prevote_desgn <- svydesign(id = ~psu_f2f,
                                      strata = ~strat_f2f,
                                      weights = ~pre_w_f2f,
@@ -68,24 +96,30 @@ anes_2016_prevote_desgn <- svydesign(id = ~psu_f2f,
                                      nest = TRUE)
 anes_2016_prevote_desgn
 
+#' In order to later make use of the survey design object, we save it into a file.
+
 save(anes_2016_prevote_desgn,file="anes-2016-prevote-desgn.RData")
 
-# We reduce the digits after dot
+#' We reduce the digits after dot ...
+
 ops <- options(digits=2)
 (tab <- svytable(~ vote16 + recall12,
                  design = anes_2016_prevote_desgn))
 
-# and drop counts of non-valid responses before
-# we compute percentages
-percentages(vote16 ~ recall12, data=tab[-6,-5])
-options(ops)
+#' and drop counts of non-valid responses before
+#' we compute percentages.
 
-# Here we compute a F-test of independence with the table, which uses the
-# Rao-Scott second-order correction with a Satterthwaite approximation of the
-# denominator degrees of freedom is used.
+percentages(vote16 ~ recall12, data=tab[-6,-5])
+
+options(ops) # To undo the change in the options.
+
+#' Here we compute a *F*-test of independence with the table, which uses the
+#' Rao-Scott second-order correction with a Satterthwaite approximation of the
+#' denominator degrees of freedom is used.
+
 summary(tab)
 
-# The more conventional Pearson-Chi-squared test adjusted with a design-effect
-# estimate is obtained by a slight modification
-summary(tab, statistic="Chisq")
+#' The more conventional Pearson-Chi-squared test adjusted with a design-effect
+#' estimate is obtained by a slight modification.
 
+summary(tab, statistic="Chisq")
