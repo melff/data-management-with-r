@@ -3,7 +3,7 @@ channels:
 dependencies:
   - gcc_impl_linux-64
   - gxx_impl_linux-64
-  - r-base=3.6
+  - r-base=4.0.4
   - r-data.table
   - r-haven
   - r-dplyr
