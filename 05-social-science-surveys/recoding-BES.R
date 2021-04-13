@@ -1,7 +1,5 @@
 #' # Recoding data from the British Election Study
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 #' The following makes use of the *memisc* package. You may need to install it
 #' from [CRAN](https://cran.r-project.org/package=memisc) using the code
 #' `install.packages("memisc")` if you want to run this on your computer. (The package is already installed on
@@ -49,5 +47,3 @@ BES.1983.classvot <- within(BES.1983.classvot,{
 })
 # Checking the result:
 codebook(BES.1983.classvot$vote.new)
-
-

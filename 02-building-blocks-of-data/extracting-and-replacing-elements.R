@@ -1,7 +1,5 @@
 #' # Extracting and replacing elements of a vector
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 x <- c(10, 12, 30, 14, 50)
 
 x[1]

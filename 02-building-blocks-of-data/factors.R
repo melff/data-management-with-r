@@ -1,6 +1,5 @@
 #' # Factors
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
 set.seed(42)
 
 satisfaction <- sample(1:4,size=20,replace=TRUE)
@@ -41,5 +40,3 @@ as.numeric(country)
 
 levels(country) <- c("EN","NI","SC","WL")
 table(country)
-
-

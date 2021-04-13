@@ -1,7 +1,5 @@
 #' # Saving and loading objects
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 # In this example we create the two variables 'a' and 'b':
 a <- 1
 b <- 1

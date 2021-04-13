@@ -1,10 +1,6 @@
 # Character vectors
 
 ```{r}
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-```
-
-```{r}
 Beatles <- c("John", "Paul", "George", "Ringo")
 Beatles
 ```
@@ -63,8 +59,4 @@ onetofour
 
 ```{r}
 print(onetofour)
-```
-
-```{r}
-
 ```

@@ -1,6 +1,5 @@
 #' # Importing shapefiles
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
 options(width=100)
 
 #' The data used here are available from [Upsala Conflict Data Program](https://ucdp.uu.se/downloads/index.html#ged_polygons).

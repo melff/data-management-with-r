@@ -5,8 +5,6 @@
 #' `install.packages("data.table")` if you want to run this on your computer. (The package is already installed on
 #' the notebook container, however.)
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 library(data.table)
 UK <- data.table(
            Population = c(55619400,1885400,5424800,3125000),
@@ -23,5 +21,3 @@ UK[,Density := Population/Area]
 UK
 
 UK1
-
-

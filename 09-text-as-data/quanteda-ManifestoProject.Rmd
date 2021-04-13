@@ -1,7 +1,6 @@
 # Preparing Manifesto Project data using *quanteda*
 
 ```{r}
-options(jupyter.rich_display=FALSE) # Create output as usual in R
 options(width=120)
 ```
 

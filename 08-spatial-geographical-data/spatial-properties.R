@@ -1,7 +1,5 @@
 #' # Properties of spatial objects
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 #' The following code makes use of two packages:
 #' - the *sf* package, which is available from https://cran.r-project.org/package=sf
 #' - the *units* package, which is available from https://cran.r-project.org/package=units

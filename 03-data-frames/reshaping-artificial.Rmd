@@ -1,8 +1,5 @@
 # Reshaping data frames: An example with artificial data
 
-```{r}
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-```
 
 Here we construct the data frame that contains the first two rows
 of the data in wide format in the previous illustration.
@@ -64,8 +61,4 @@ because the order of the variables now is different:
 
 ```{r}
 example.data.wide.a
-```
-
-```{r}
-
 ```

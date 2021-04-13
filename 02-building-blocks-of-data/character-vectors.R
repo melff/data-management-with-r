@@ -1,7 +1,5 @@
 #' # Character vectors
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 Beatles <- c("John", "Paul", "George", "Ringo")
 Beatles
 
@@ -34,5 +32,3 @@ names(onetofour)
 onetofour
 
 print(onetofour)
-
-

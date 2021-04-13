@@ -12,8 +12,6 @@
 #' Currently, these Data files are also available from https://www.pippanorris.com/data.
 #' (Previously they were available from http://www.hks.harvard.edu/fs/pnorris/Data/Data.htm.) 
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 library(haven)
 
 # Reading in an SPSS "system" file
@@ -31,5 +29,3 @@ head(ConstRes2010)
 # Reading in a new format Stata file
 ConstRes2010 <- read_dta("ConstResults2010-stata-new.dta")
 head(ConstRes2010)
-
-

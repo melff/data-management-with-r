@@ -5,8 +5,6 @@
 #' `install.packages("data.table")` if you want to run this on your computer. (The package is already installed on
 #' the notebook container, however.)
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R, but make it wider
-
 library(data.table)
 
 load("bes2010feelings.RData")
@@ -33,5 +31,3 @@ sctl2010feelings <- bes2010feelings[region=="Scotland",
 str(sctl2010feelings)
 
 head(sctl2010feelings)
-
-

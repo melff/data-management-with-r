@@ -1,8 +1,5 @@
 # Constructing a survey design object from a data frame
 
-```{r}
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-```
 
 First we activate the *survey* package. You may need to install it from [CRAN](https://cran.r-project.org/package=survey) using the code `install.packages("survey")` before this if you try running this on your computer. (Package is already installed on the notebook container, however.)
 

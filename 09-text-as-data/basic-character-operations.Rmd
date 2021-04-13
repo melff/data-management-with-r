@@ -3,10 +3,6 @@
 ## `length()` versus `nchar()`
 
 ```{r}
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-```
-
-```{r}
 some_great_rock_bands <- c("Led Zeppelin","Pink Floyd","Queen")
 ```
 

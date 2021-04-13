@@ -1,7 +1,5 @@
 #' # Poststratification of 2016 American National Election Study data
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 #' The following data file was created in an earlier script / notebook.
 
 load("anes-2016-prevote.RData")

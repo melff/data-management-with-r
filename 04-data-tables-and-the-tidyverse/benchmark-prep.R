@@ -40,4 +40,3 @@ SDTbl <- as_tibble(SData)
 SDataT <- as.data.table(SData)
 save(SDataF,SDTbl,SDataT,
      file="SData.RData")
-

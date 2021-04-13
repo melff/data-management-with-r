@@ -1,10 +1,6 @@
 # Reordering and sorting elements of a vector
 
 ```{r}
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-```
-
-```{r}
 set.seed(231)
 ```
 
@@ -65,8 +61,4 @@ all(x.ordered[jj] == x)
 
 ```{r}
 all(y.ordered[jj] == y)
-```
-
-```{r}
-
 ```

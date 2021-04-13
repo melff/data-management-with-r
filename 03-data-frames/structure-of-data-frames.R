@@ -1,7 +1,5 @@
 #' # The structure of data frames
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 #' ## Data frame construction
 
 # First create a few vectors from which we construct the data frame:
@@ -74,5 +72,3 @@ UK[,1:2]
 
 # and the variables named 'Population' and 'GVA'
 UK[,c("Population","GVA")]
-
-

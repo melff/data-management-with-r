@@ -2,10 +2,6 @@
 # Subsetting spatial feature objects
 <!-- #endregion -->
 
-```{r slideshow={'slide_type': '-'}}
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-```
-
 <!-- #region slideshow={"slide_type": "-"} -->
 The following makes use of the *sf* package. You may need to install it from
 [CRAN](https://cran.r-project.org/package=sf) using the code

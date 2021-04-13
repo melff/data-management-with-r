@@ -1,7 +1,5 @@
 #' # Converting "sp" objects to "sf" objects
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 #' The following makes use of the *sf*, *cshapes*, and *sp* packages. You may need to install them from
 #' [CRAN](https://cran.r-project.org) using the code
 #' `install.packages(c("sf","cshapes","sp"))` if you want to run this on your computer. (The

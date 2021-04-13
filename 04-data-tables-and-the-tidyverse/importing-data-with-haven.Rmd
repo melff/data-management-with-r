@@ -14,10 +14,6 @@ Currently, these Data files are also available from https://www.pippanorris.com/
 (Previously they were available from http://www.hks.harvard.edu/fs/pnorris/Data/Data.htm.) 
 
 ```{r}
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-```
-
-```{r}
 library(haven)
 ```
 
@@ -43,8 +39,4 @@ head(ConstRes2010)
 # Reading in a new format Stata file
 ConstRes2010 <- read_dta("ConstResults2010-stata-new.dta")
 head(ConstRes2010)
-```
-
-```{r}
-
 ```

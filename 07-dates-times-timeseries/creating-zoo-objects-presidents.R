@@ -1,7 +1,5 @@
 #' # Creating a "zoo" object from the `presidents` time series
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 #' `presidents` is already available as part of a standard *R* installation.
 
 npresidents <- as.numeric(presidents)

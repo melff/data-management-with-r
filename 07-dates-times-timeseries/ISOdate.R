@@ -1,7 +1,5 @@
 #' # Creation of date and time data for given years, months, and days
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 # Here we create the first days of all months in the year 2000:
 # By default the time is noon
 ISOdate(2000,1:12,1)

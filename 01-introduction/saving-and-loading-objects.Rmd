@@ -3,10 +3,6 @@
 <!-- #endregion -->
 
 ```{r}
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-```
-
-```{r}
 # In this example we create the two variables 'a' and 'b':
 a <- 1
 b <- 1

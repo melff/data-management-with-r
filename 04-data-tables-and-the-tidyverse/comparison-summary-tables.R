@@ -3,14 +3,9 @@
 #' The following makes use of the packages *data.table*, *dplyr*, *memisc*, and *rbenchmark*. You may need to install these packages from [CRAN](https://cran.r-packages.org) by calling `install.packages(c("data.table","dplyr","memisc","rbenchmark"))` if you want to run this on your computer. (The packages are already installed
 #' on the notebook container, however.)
 
-options(jupyter.rich_display=TRUE) # Create formatted output
-
 library(data.table)
-
 library(dplyr)
-
 library(memisc)
-
 library(rbenchmark)
 
 bench_matrix <- function(x){
@@ -32,6 +27,8 @@ grouped_summary_benchmark <- grouped_summary_benchmark[-5,,]
 colnames(grouped_summary_benchmark) <- c("abs.","rel.")
 names(dimnames(grouped_summary_benchmark)) <- c("Method","Timing","Data")
 
+options(jupyter.rich_display=TRUE)
+
 ftable(grouped_summary_benchmark,col.vars=3:2) %>% memisc::show_html(digits=2)
 
 load("grouped-modification-benchmark.RData")
@@ -46,5 +43,3 @@ colnames(grouped_modification_benchmark) <- c("abs.","rel.")
 names(dimnames(grouped_modification_benchmark)) <- c("Method","Timing","Data")
 
 ftable(grouped_modification_benchmark,col.vars=3:2) %>% memisc::show_html(digits=2)
-
-

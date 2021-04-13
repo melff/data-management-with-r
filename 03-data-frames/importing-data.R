@@ -1,7 +1,5 @@
 #' # Importing data into data frames
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 #' This notebook makes use of the following files:
 #'
 #' - [ConstituencyResults2010.csv](https://raw.githubusercontent.com/melff/dataman-r/main/data-frames/ConstituencyResults2010.csv)
@@ -69,5 +67,3 @@ ConstRes2010[1:5,]
 
 # The following does not work - newer Stata format is not supported
 ConstRes2010 <- read.dta("ConstResults2010-stata-new.dta")
-
-

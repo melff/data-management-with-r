@@ -5,8 +5,6 @@
 #' `install.packages(c("tidyr","readr"))` if you want to run this on your computer. (The packages are already installed
 #' on the notebook container, however.)
 
-options(jupyter.rich_display=FALSE, width=120) # Create output as usual in R
-
 # Inspecting the file
 substr(readLines("gini-oecd.tsv",n=5),start=1,stop=50)
 
@@ -32,5 +30,3 @@ gini.oecd %>% pivot_longer(-Location,
                            names_to="year",
                            values_to="gini") -> gini.oecd.long
 gini.oecd.long
-
-

@@ -1,7 +1,5 @@
 #' # Groupwise computations within data frames
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 #' Here we use data from the British Election Study 2010. The data set [bes2010feelings-pre-long.RData](https://github.com/melff/dataman-r/raw/main/data-frames/bes2010feelings-pre-long.RData) is prepared from the original available at https://www.britishelectionstudy.com/data-object/2010-bes-cross-section/ by removing identifying information and scrambling the data.
 
 load("bes2010feelings-pre-long.RData")
@@ -42,5 +40,3 @@ bes2010flngs_pre_long <- withinGroups(bes2010flngs_pre_long,
 #' We use 'head' to look at the first 14 elements of the re-combined data frame:
 
 head(bes2010flngs_pre_long[-(1:2)],n=14)
-
-

@@ -3,7 +3,9 @@
 ```{r}
 library(data.table)
 library(tibble)
+```
 
+```{r}
 # Here we create 100 variables, each with 1,000,000 elements
 BData <- replicate(100,list(rnorm(1000000)))
 names(BData) <- paste0("X",sprintf("%d",1:100))
@@ -12,7 +14,9 @@ BData$a <- sample(letters[1:10],size=length(BData[[1]]),
                  replace=TRUE)
 BData$b <- sample(letters[1:10],size=length(BData[[1]]),
                  replace=TRUE)
+```
 
+```{r}
 # Put together we have a data frame with 101 variables
 # and one million observations
 BDataF <- data.frame(BData)
@@ -22,7 +26,9 @@ BDTbl <- as_tibble(BData)
 BDataT <- as.data.table(BData)
 save(BDataF,BDTbl,BDataT,
      file="BData.RData")
+```
 
+```{r}
 # Here we create 1500 variables, each with 3,000 elements
 SData <- replicate(1500,list(rnorm(3000)))
 names(SData) <- paste0("X",sprintf("%d",1:1500))
@@ -31,7 +37,9 @@ SData$a <- sample(letters[1:10],size=length(SData[[1]]),
                   replace=TRUE)
 SData$b <- sample(letters[1:10],size=length(SData[[1]]),
                   replace=TRUE)
+```
 
+```{r}
 # Put together we have a data frame with 1,500 variables
 # and 3,000 observations
 SDataF <- data.frame(SData)
@@ -41,5 +49,4 @@ SDTbl <- as_tibble(SData)
 SDataT <- as.data.table(SData)
 save(SDataF,SDTbl,SDataT,
      file="SData.RData")
-
 ```

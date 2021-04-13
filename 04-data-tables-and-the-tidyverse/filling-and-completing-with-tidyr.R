@@ -4,8 +4,6 @@
 #' (The packages are already installed
 #' on the notebook container, however.)
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 #' Filling missing values with `fill()`
 
 library(tidyr)
@@ -34,5 +32,3 @@ filled_data
 #' Completing data by missing values with `complete()`
 
 filled_data %>% complete(crossing(country,year))
-
-

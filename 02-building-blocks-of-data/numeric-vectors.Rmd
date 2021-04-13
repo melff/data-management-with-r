@@ -1,10 +1,6 @@
 # Numeric vectors
 
 ```{r}
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-```
-
-```{r}
 c(1.2,3.5,5.0,6.7,1.09e-3)
 ```
 

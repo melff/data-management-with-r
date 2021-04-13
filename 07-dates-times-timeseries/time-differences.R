@@ -1,7 +1,5 @@
 #' # Time differences
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 # It does not matter whether we have "POSIXct" or "POSIXlt" objects,
 # we can always obtain differences between the tiems
 t0 <- as.POSIXlt(0,origin="2020-02-01",tz="GMT")

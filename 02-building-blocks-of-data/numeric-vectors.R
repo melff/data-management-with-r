@@ -1,7 +1,5 @@
 #' # Numeric vectors
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 c(1.2,3.5,5.0,6.7,1.09e-3)
 
 x <- c(1.2,3.5,5.0,6.7,1.09e-3)

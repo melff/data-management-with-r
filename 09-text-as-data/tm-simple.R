@@ -1,7 +1,5 @@
 #' # A simple example for the usage of the *tm* package
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 #' The following makes use of the *tm* package. You may need to install it from
 #' [CRAN](https://cran.r-project.org/package=tm) using the code
 #' `install.packages("tm")` if you want to run this on your computer. (The

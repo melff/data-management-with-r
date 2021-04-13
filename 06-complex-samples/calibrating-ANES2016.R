@@ -1,7 +1,5 @@
 #' # Calibrating 2016 ANES data by linear regression.
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 #' The following makes use of the *survey* package. You may need to install it from
 #' [CRAN](https://cran.r-project.org/package=survey) using the code
 #' `install.packages("survey")` if you want to run this on your computer. (The

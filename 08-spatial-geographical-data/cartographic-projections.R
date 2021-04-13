@@ -1,7 +1,5 @@
 #' # Geographical projections of a mainland USA map
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 library(sf)
 
 load("US_flat.RData")

@@ -1,7 +1,5 @@
 #' # Time arithmetic
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 # When in standard format, a string does not need a format spefication in order
 # to be translatable
 t0 <- as.POSIXct("2020-02-01 00:00",tz="GMT")

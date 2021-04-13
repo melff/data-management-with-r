@@ -1,8 +1,5 @@
 # Creating replicate weights for a survey design object (with ANES 2016 data).
 
-```{r}
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-```
 
 The following line loads data created with a previous *R* script or notebook.
 

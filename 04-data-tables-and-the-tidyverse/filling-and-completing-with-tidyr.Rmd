@@ -4,9 +4,6 @@ The following makes use of the packages *tidyr* and *readr*. You may need to ins
 (The packages are already installed
 on the notebook container, however.)
 
-```{r}
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-```
 
 Filling missing values with `fill()`
 
@@ -45,8 +42,4 @@ Completing data by missing values with `complete()`
 
 ```{r}
 filled_data %>% complete(crossing(country,year))
-```
-
-```{r}
-
 ```

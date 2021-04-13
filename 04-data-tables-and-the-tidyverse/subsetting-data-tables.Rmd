@@ -7,10 +7,6 @@ from [CRAN](https://cran.r-project.org/package=data.table) using the code
 the notebook container, however.)
 
 ```{r}
-options(jupyter.rich_display=FALSE) # Create output as usual in R, but make it wider
-```
-
-```{r}
 library(data.table)
 ```
 
@@ -53,8 +49,4 @@ str(sctl2010feelings)
 
 ```{r}
 head(sctl2010feelings)
-```
-
-```{r}
-
 ```

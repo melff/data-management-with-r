@@ -1,7 +1,5 @@
 #' # Artificial time series data
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 x <- round(rnorm(1:12),1)
 
 ts(x,start=2000,

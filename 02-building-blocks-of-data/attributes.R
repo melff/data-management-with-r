@@ -1,7 +1,5 @@
 #' # Attributes
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 onetofour <- c(first=1,second=2,third=3,fourth=4)
 
 attributes(onetofour)
@@ -25,5 +23,3 @@ levels(satisfaction)
 attr(satisfaction,"class")
 
 class(satisfaction)
-
-

@@ -1,7 +1,5 @@
 #' # Comparing poststratification, raking, and calibration with ANES data
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 #' The following makes use of the packages *survey* and *memisc*. You may need to
 #' install them from [CRAN](https://cran.r-project.org) using the code
 #' `install.packages(c("survey","memisc"))` if you want to run this on your computer. (The packages are already installed on the notebook container, however.)

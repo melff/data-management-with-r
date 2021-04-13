@@ -1,7 +1,5 @@
 #' # An example for the use of *tm* on data from the Manifesto Project
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 #' The file CSV-files in folder "Manifesto Project"
 #' were downloaded from the [Manifesto Project website](https://manifesto-project.wzb.eu/datasets).
 #' Redistribution of the data is prohibited, so readers who want to reproduce the following will need to download their own copy of the data set and upload it to the virtual machine that runs this notebook. To do this,

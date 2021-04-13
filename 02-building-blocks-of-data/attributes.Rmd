@@ -1,10 +1,6 @@
 # Attributes
 
 ```{r}
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-```
-
-```{r}
 onetofour <- c(first=1,second=2,third=3,fourth=4)
 ```
 
@@ -42,8 +38,4 @@ attr(satisfaction,"class")
 
 ```{r}
 class(satisfaction)
-```
-
-```{r}
-
 ```

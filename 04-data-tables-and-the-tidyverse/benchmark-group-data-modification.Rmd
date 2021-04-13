@@ -7,13 +7,17 @@ install them from [CRAN](https://cran.r-project.org) using the code
 
 ```{r}
 library(data.table)
-library(dplyr)
 library(memisc)
+library(dplyr)
 library(rbenchmark)
+```
 
+```{r}
 load("BData.RData")
 load("SData.RData")
+```
 
+```{r}
 grouped_modification_benchmark_1 <- benchmark(
     within =
         within(BDataF,{
@@ -46,7 +50,9 @@ grouped_modification_benchmark_1 <- benchmark(
     order = NULL,
     relative = "user.self"
 )
+```
 
+```{r}
 grouped_modification_benchmark_2 <- benchmark(
     within =
         within(SDataF,{
@@ -79,7 +85,9 @@ grouped_modification_benchmark_2 <- benchmark(
     order = NULL,
     relative = "user.self"
 )
+```
 
+```{r}
 save(grouped_modification_benchmark_1,
      grouped_modification_benchmark_2,
      file="grouped-modification-benchmark.RData")

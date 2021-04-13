@@ -7,10 +7,6 @@ from [CRAN](https://cran.r-project.org/package=data.table) using the code
 the notebook container, however.)
 
 ```{r}
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-```
-
-```{r}
 library(data.table)
 UK <- data.table(
            Population = c(55619400,1885400,5424800,3125000),
@@ -33,8 +29,4 @@ UK
 
 ```{r}
 UK1
-```
-
-```{r}
-
 ```

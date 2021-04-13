@@ -1,6 +1,5 @@
 #' # Preparing Manifesto Project data using *quanteda*
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
 options(width=120)
 
 #' The file CSV-files in folder "Manifesto Project"

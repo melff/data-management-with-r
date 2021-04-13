@@ -7,10 +7,6 @@ install them from [CRAN](https://cran.r-project.org) using the code
 on the notebook container, however.)
 
 ```{r}
-options(jupyter.rich_display=FALSE, width=120) # Create output as usual in R
-```
-
-```{r}
 # Inspecting the file
 substr(readLines("gini-oecd.tsv",n=5),start=1,stop=50)
 ```
@@ -50,8 +46,4 @@ gini.oecd %>% pivot_longer(-Location,
                            names_to="year",
                            values_to="gini") -> gini.oecd.long
 gini.oecd.long
-```
-
-```{r}
-
 ```

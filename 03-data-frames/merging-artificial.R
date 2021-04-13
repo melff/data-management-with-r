@@ -1,7 +1,5 @@
 #' # Merging data frames: An example with artificial data
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 df1 <- data.frame(
     x = c(1,3,2,4,6,5),
     y = c(1,1,2,2,2,4)
@@ -54,5 +52,3 @@ merge(df1,df2,by.x="y",by.y="b",
 
 merge(df1,df2,by.x="y",by.y="b",
       all=TRUE)
-
-

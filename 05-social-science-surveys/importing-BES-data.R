@@ -1,7 +1,5 @@
 #' # Importing data from the British Election Study in SPSS format
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 #' In order to run this notebook successfully, you have to download the 1983 British Election Study from the [BES website](https://www.britishelectionstudy.com/data-object/1983-bes-cross-section/) and upload it to the virtual machine on which this notebook runs. To do this, 
 #'
 #' 1. pull down the "File" menu item and select "Open"
@@ -89,5 +87,3 @@ show_html(codebook(BES.1983.classvot)) # Same information in HTML format
 
 save(BES.1983.classvot,
      file="BES-1983-classvot.RData")
-
-

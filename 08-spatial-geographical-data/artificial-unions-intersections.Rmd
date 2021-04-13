@@ -2,10 +2,6 @@
 # Unions and intersections (of artificial geometric objects)
 <!-- #endregion -->
 
-```{r slideshow={'slide_type': 'fragment'}}
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-```
-
 <!-- #region slideshow={"slide_type": "fragment"} -->
 The following makes use of the *sf* package. You may need to install it from
 [CRAN](https://cran.r-project.org/package=sf) using the code

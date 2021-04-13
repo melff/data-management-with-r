@@ -1,8 +1,5 @@
 # Importing ASCII format data from the American National Election Study
 
-```{r}
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-```
 
 The following makes use of the *memisc* package. You may need to install it
 from [CRAN](https://cran.r-project.org/package=memisc) using the code
@@ -38,8 +35,4 @@ anes2008TS <- spss.fixed.file(
 
 ```{r}
 description(anes2008TS[1:30])
-```
-
-```{r}
-
 ```

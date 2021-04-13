@@ -5,8 +5,6 @@
 #' `install.packages(c("tidyr","readr"))` if you want to run this on your computer. (The packages are already installed
 #' on the notebook container, however.)
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 substr(readLines("inequality-oecd-downloaded.csv",n=5),
        start=1,stop=40)
 
@@ -40,5 +38,3 @@ inequality.oecd.dld %>% pivot_wider(names_from=SUBJECT,
                                                 inequality.oecd
 
 inequality.oecd
-
-

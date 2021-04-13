@@ -1,7 +1,6 @@
 # Factors
 
 ```{r}
-options(jupyter.rich_display=FALSE) # Create output as usual in R
 set.seed(42)
 ```
 
@@ -62,8 +61,4 @@ as.numeric(country)
 ```{r}
 levels(country) <- c("EN","NI","SC","WL")
 table(country)
-```
-
-```{r}
-
 ```

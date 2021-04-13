@@ -1,7 +1,5 @@
 #' # Variables and Objects
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 # Defining two variables
 a <- 1
 b <- 2

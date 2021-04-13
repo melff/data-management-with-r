@@ -1,7 +1,5 @@
 #' # A basic example for the usage of the *quanteda* package
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 #' The following makes use of the *quanteda* package. You may need to install it from
 #' [CRAN](https://cran.r-project.org/package=quanteda) using the code
 #' `install.packages("quanteda")` if you want to run this on your computer. (The

@@ -1,7 +1,6 @@
 # Importing shapefiles
 
 ```{r}
-options(jupyter.rich_display=FALSE) # Create output as usual in R
 options(width=100)
 ```
 

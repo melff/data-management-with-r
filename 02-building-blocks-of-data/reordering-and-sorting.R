@@ -1,7 +1,5 @@
 #' # Reordering and sorting elements of a vector
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 set.seed(231)
 
 x <- rnorm(n=10)
@@ -36,5 +34,3 @@ jj <- order(ii)
 all(x.ordered[jj] == x)
 
 all(y.ordered[jj] == y)
-
-

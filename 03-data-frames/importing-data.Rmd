@@ -1,8 +1,5 @@
 # Importing data into data frames
 
-```{r}
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-```
 
 This notebook makes use of the following files:
 
@@ -96,8 +93,4 @@ ConstRes2010[1:5,]
 ```{r}
 # The following does not work - newer Stata format is not supported
 ConstRes2010 <- read.dta("ConstResults2010-stata-new.dta")
-```
-
-```{r}
-
 ```

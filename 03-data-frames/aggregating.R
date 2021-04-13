@@ -1,7 +1,5 @@
 #' # Aggregating data frames
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 #' In the following we aggregate data from the British Election Study 2010. The data set [bes2010feelings.RData](https://github.com/melff/dataman-r/raw/main/data-frames/bes2010feelings.RData) is prepared from the original available at https://www.britishelectionstudy.com/data-object/2010-bes-cross-section/ by removing identifying information and scrambling the data.
 
 load("bes2010feelings.RData")
@@ -43,5 +41,3 @@ Aggregate(c(Brown=Mean(flng.brown),
 Var <- function(x,...) var(x,...,na.rm=TRUE)
 Aggregate(c(Mean(flng.brown),Var(flng.brown))~region+wave,
           data=bes2010feelings)
-
-

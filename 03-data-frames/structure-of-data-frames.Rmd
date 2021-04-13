@@ -1,8 +1,5 @@
 # The structure of data frames
 
-```{r}
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-```
 
 ## Data frame construction
 
@@ -107,8 +104,4 @@ UK[,1:2]
 ```{r}
 # and the variables named 'Population' and 'GVA'
 UK[,c("Population","GVA")]
-```
-
-```{r}
-
 ```

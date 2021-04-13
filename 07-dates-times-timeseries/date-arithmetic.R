@@ -1,7 +1,5 @@
 #' # Date arithmetic
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 # R knows the lengths of months, e.g. that March has 31 days:
 d0 <- as.Date("1968-03-01")
 d0 + 31

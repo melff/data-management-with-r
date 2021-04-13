@@ -1,7 +1,5 @@
 #' # Counting words in the UK party manifesto on occasion of the 2017 election
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 #' The file "UKLabourParty_201706.csv" 
 #' was downloaded from the [Manifesto Project website](https://manifesto-project.wzb.eu/datasets).
 #' Redistribution of the data is prohibited, so readers who want to preproduce the following will need to download their own copy of the data set and upload it to the virtual machine that runs this notebook. To do this,

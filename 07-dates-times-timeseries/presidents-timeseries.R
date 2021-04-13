@@ -1,7 +1,5 @@
 #' # Approval of US presidents
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 #' The following line is not really necessary, it is used here only to indicate
 #' that `presidents` is a pre-installed data example.
 

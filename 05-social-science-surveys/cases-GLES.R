@@ -1,7 +1,5 @@
 #' # Combining variables using case distinctions
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 #' The following makes use of the *memisc* package. You may need to install it
 #' from [CRAN](https://cran.r-project.org/package=memisc) using the code
 #' `install.packages("memisc")` if you want to run this on your computer. (The package is already installed on

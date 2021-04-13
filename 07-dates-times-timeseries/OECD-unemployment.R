@@ -1,8 +1,6 @@
 #' # OECD unemployment data
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
-#' The data file ["unemployment.csv"](https://github.com/melff/dataman-r/raw/main//dates-times-timeseries/OECD-unemployment.R) used below consists of data originally downloaded from the [OECD Database website](https://data.oecd.org).
+#' The data file ["unemployment.csv"](unemployment.csv) used below consists of data originally downloaded from the [OECD Database website](https://data.oecd.org).
 
 unemployment <- read.csv("unemployment.csv")
 

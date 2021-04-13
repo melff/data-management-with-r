@@ -1,7 +1,5 @@
 #' # POSIXct time objects
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 as.POSIXct(7200,origin="1970-01-01")
 
 t0 <- as.POSIXct(7200,origin="1970-01-01",tz="GMT")

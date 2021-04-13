@@ -1,10 +1,6 @@
 # Geographical projections of a mainland USA map
 
 ```{r}
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-```
-
-```{r}
 library(sf)
 ```
 

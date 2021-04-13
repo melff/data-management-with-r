@@ -7,10 +7,6 @@ install them from [CRAN](https://cran.r-project.org) using the code
 on the notebook container, however.)
 
 ```{r}
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-```
-
-```{r}
 substr(readLines("inequality-oecd-downloaded.csv",n=5),
        start=1,stop=40)
 ```
@@ -68,8 +64,4 @@ inequality.oecd.dld %>% pivot_wider(names_from=SUBJECT,
 
 ```{r}
 inequality.oecd
-```
-
-```{r}
-
 ```

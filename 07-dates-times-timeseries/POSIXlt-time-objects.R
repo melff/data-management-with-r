@@ -1,7 +1,5 @@
 #' # POSIXlt time objects
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 t0 <- as.POSIXlt(0,origin="2020-02-01",tz="GMT")
 
 (t1 <- as.POSIXlt(t0 + 3630))

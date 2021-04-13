@@ -1,8 +1,5 @@
 #' # Lists
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-Sys.setlocale(category="LC_ALL",locale="C")
-
 AList <- list(1:5,
               letters[1:6],
               c(TRUE,FALSE,FALSE,TRUE))

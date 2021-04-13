@@ -1,8 +1,5 @@
 #' # Subsetting spatial feature objects
 
-#+ slideshow={'slide_type': '-'}
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 #' The following makes use of the *sf* package. You may need to install it from
 #' [CRAN](https://cran.r-project.org/package=sf) using the code
 #' `install.packages("sf")` if you want to run this on your computer. (The

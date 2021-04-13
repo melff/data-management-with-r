@@ -1,7 +1,5 @@
 #' # Summarizing data tables
 
-options(jupyter.rich_display=FALSE) # Create output as usual in R
-
 #' Here we use data from the British Election Study 2010. The data set
 #' [bes2010feelings.RData](https://github.com/melff/dataman-r/raw/main/data-frames/bes2010feelings.RData)
 #' is prepared from the original available at
@@ -25,5 +23,3 @@ bes2010feelings[,.(Brown=Mean(flng.brown),
                    Clegg=Mean(flng.clegg),
                    N=.N),
                 by=.(wave,region)]
-
-
