@@ -14,7 +14,7 @@ rm(a,b)
 # Checking the existence of a variable
 exists("a")
 
-# Defining and removing "hidden" variables
+# "Hidden" variables
 a <- 1
 b <- 2
 x <- 3
