@@ -7,7 +7,7 @@
 
 library(sf)
 
-#' The file used here was extracted by hand from http://www.openstreetmap.org. It is available from [here](http://github.com/melff/dataman-r/main/spatial-geographical-data/stpauls.osm).
+#' The file used here was extracted by hand from http://www.openstreetmap.org. It is available from [here](http://github.com/melff/dataman-r/raw/main/08-spatial-geographical-data/stpauls.osm).
 
 st_layers("stpauls.osm")
 

@@ -8,7 +8,7 @@ ts(x,start=2000,
 print(ts(x,start=2000,
        frequency=12))
 
-#' The data file ["unemployment.csv"](https://github.com/melff/dataman-r/raw/main//dates-times-timeseries/OECD-unemployment.R) used below consists of data originally downloaded from the [OECD Database website](https://data.oecd.org).
+#' The data file ["unemployment.csv"](https://github.com/melff/dataman-r/raw/main/07-dates-times-timeseries/OECD-unemployment.R) used below consists of data originally downloaded from the [OECD Database website](https://data.oecd.org).
 
 unemployment <- read.csv("unemployment.csv")
 # This is of course incorrect, but demonstrates how monthly multivariate time 

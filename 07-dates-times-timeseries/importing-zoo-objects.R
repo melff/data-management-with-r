@@ -7,7 +7,7 @@
 
 library(zoo)
 
-#' The data file ["unemployment.csv"](https://github.com/melff/dataman-r/raw/main//dates-times-timeseries/OECD-unemployment.R) used below consists of data originally downloaded from the [OECD Database website](https://data.oecd.org).
+#' The data file ["unemployment.csv"](https://github.com/melff/dataman-r/raw/main/07-dates-times-timeseries/OECD-unemployment.R) used below consists of data originally downloaded from the [OECD Database website](https://data.oecd.org).
 
 unemployment_z <- read.csv.zoo("unemployment.csv")
 str(unemployment_z)

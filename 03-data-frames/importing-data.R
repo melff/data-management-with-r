@@ -2,13 +2,13 @@
 
 #' This notebook makes use of the following files:
 #'
-#' - [ConstituencyResults2010.csv](https://raw.githubusercontent.com/melff/dataman-r/main/data-frames/ConstituencyResults2010.csv)
-#' - [ConstituencyResults2010-nohdr.csv](https://raw.githubusercontent.com/melff/dataman-r/main/data-frames/ConstituencyResults2010-nohdr.csv)
-#' - [ConstituencyResults2010.tsv](https://raw.githubusercontent.com/melff/dataman-r/main/data-frames/ConstituencyResults2010.tsv)
-#' - [ConstituencyResults2010.sav](https://raw.githubusercontent.com/melff/dataman-r/main/data-frames/ConstituencyResults2010.sav)
-#' - [ConstituencyResults2010.por](https://raw.githubusercontent.com/melff/dataman-r/main/data-frames/ConstituencyResults2010.por)
-#' - [ConstituencyResults2010.dta](https://raw.githubusercontent.com/melff/dataman-r/main/data-frames/ConstituencyResults2010.dta)
-#' - [ConstituencyResults2010-stata-new.dta](https://raw.githubusercontent.com/melff/dataman-r/main/data-frames/ConstResults2010-stata-new.dta)
+#' - [ConstituencyResults2010.csv](https://raw.githubusercontent.com/melff/dataman-r/main/03-data-frames/ConstituencyResults2010.csv)
+#' - [ConstituencyResults2010-nohdr.csv](https://raw.githubusercontent.com/melff/dataman-r/main/03-data-frames/ConstituencyResults2010-nohdr.csv)
+#' - [ConstituencyResults2010.tsv](https://raw.githubusercontent.com/melff/dataman-r/main/03-data-frames/ConstituencyResults2010.tsv)
+#' - [ConstituencyResults2010.sav](https://raw.githubusercontent.com/melff/dataman-r/main/03-data-frames/ConstituencyResults2010.sav)
+#' - [ConstituencyResults2010.por](https://raw.githubusercontent.com/melff/dataman-r/main/03-data-frames/ConstituencyResults2010.por)
+#' - [ConstituencyResults2010.dta](https://raw.githubusercontent.com/melff/dataman-r/main/03-data-frames/ConstituencyResults2010.dta)
+#' - [ConstituencyResults2010-stata-new.dta](https://raw.githubusercontent.com/melff/dataman-r/main/03-data-frames/ConstResults2010-stata-new.dta)
 #'
 #' Currently, these Data files are also available from https://www.pippanorris.com/data.
 #' (Previously they were available from http://www.hks.harvard.edu/fs/pnorris/Data/Data.htm.) 
