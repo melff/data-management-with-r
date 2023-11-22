@@ -3,11 +3,11 @@
 
 In order to run this notebook successfully, you have to download the 1983 British Election Study from the [BES website](https://www.britishelectionstudy.com/data-object/1983-bes-cross-section/) and upload it to the virtual machine on which this notebook runs. To do this, 
 
-1. pull down the "File" menu item and select "Open"
-2. An overview of the folder that contains the notebook opens. 
-3. The folder view has a button labelled "Upload". Use this to upload the file that you downloaded from the BES website. Its name should be `83BES.sav`.
+1. open the file manager window of this site using [this link](/user-redirect/tree/05-social-science-surveys/)
+2. use the button labelled "Upload" to upload the data set that you downloaded from the BES website.
+3. after uploading the file, it should appear in the list of files in the folder. Make sure that its name is`83BES.sav`.
 
-Note that the uploaded data will disappear, when the notebook container is reset.
+Note that the uploaded data will disappear when the notebook container is reset.
 
 The following also makes use of the *memisc* package. You may need to install it
 from [CRAN](https://cran.r-project.org/package=memisc) using the code

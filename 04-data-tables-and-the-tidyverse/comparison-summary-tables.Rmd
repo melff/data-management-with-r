@@ -6,8 +6,17 @@ on the notebook container, however.)
 
 ```{r}
 library(data.table)
+```
+
+```{r}
 library(dplyr)
+```
+
+```{r}
 library(memisc)
+```
+
+```{r}
 library(rbenchmark)
 ```
 

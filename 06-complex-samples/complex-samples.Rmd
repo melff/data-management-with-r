@@ -1,0 +1,22 @@
+# Data from Complex Samples
+
+Data from social science surveys often come from complex samples. In order to achieve efficient or at least accurate inference one may need to take into account the sampling design in the computation of sample summaries, e.g. by the application of sampling weights. The chapter shows how the _survey_ package can help to take into account the sampling design in data management and data analysis.
+
+Below is the supporting material for the various sections of the chapter.
+
+## Survey Design Objects
+
+- [Constructing a survey design object from a data frame](survey-design-objects-NHANES.ipynb)
+- [Constructing a survey design object from data of the 2016 American Election Study.](survey-design-objects-ANES2016.ipynb)
+
+## Survey Replication Weights
+
+- [Using the replicate weights provided with CHIS data](survey-replication-weights-CHIS.ipynb)
+- [Creating replicate weights for a survey design object (with ANES 2016 data).](survey-replication-weights-ANES2016.ipynb)
+
+## Poststratification, Raking, and Calibration
+
+- [Poststratification of 2016 American National Election Study data](poststratification-ANES2016.ipynb)
+- [Raking 2016 American National Election Study data](raking-ANES2016.ipynb)
+- [Calibrating 2016 ANES data by linear regression.](calibrating-ANES2016.ipynb)
+- [Comparing poststratification, raking, and calibration with ANES data](comparing-ANES2016.ipynb)

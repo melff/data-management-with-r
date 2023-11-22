@@ -5,14 +5,17 @@
 #' `install.packages(c("data.table","dplyr","memisc","rbenchmark"))` if you want to run this on your computer. (The packages are already installed on the notebook container, however.)
 
 library(data.table)
+
 library(memisc)
+
 library(dplyr)
+
 library(rbenchmark)
 
 load("BData.RData")
 load("SData.RData")
 
-grouped_summary_benchmark_1 <- benchmark(
+suppressMessages(grouped_summary_benchmark_1 <- benchmark(
     aggregate =
         aggregate(X1~a+b,data=BDataF, FUN=mean),
     `with + tapply` =
@@ -30,9 +33,9 @@ grouped_summary_benchmark_1 <- benchmark(
   replications = 100,
   order = NULL,
   relative = "user.self"
-)
+))
 
-grouped_summary_benchmark_2 <- benchmark(
+suppressMessages(grouped_summary_benchmark_2 <- benchmark(
     aggregate =
         aggregate(X1~a+b,data=SDataF, FUN=mean),
     `with + tapply` =
@@ -50,8 +53,8 @@ grouped_summary_benchmark_2 <- benchmark(
   replications = 100,
   order = NULL,
   relative = "user.self"
-)
+))
 
 save(grouped_summary_benchmark_1,
      grouped_summary_benchmark_2,
-     "grouped-summary-benchmark.RData")
+     file="grouped-summary-benchmark.RData")

@@ -29,7 +29,7 @@ str(bes2010flngs_pre_long)
 #' Groupwise computations using `withinGroups()` from the package *memisc*. You may need to install this package using `install.packages("memisc")` from 
 #' [CRAN](https://cran.r-project.org/package=memisc) if you want to run this on your computer. (The package is already installed on the notebook container, however.)
 
-library(memisc)
+suppressMessages(library(memisc))
 
 bes2010flngs_pre_long <- withinGroups(bes2010flngs_pre_long,
                                       ~id,{

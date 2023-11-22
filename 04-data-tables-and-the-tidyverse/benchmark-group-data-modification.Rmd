@@ -7,8 +7,17 @@ install them from [CRAN](https://cran.r-project.org) using the code
 
 ```{r}
 library(data.table)
+```
+
+```{r}
 library(memisc)
+```
+
+```{r}
 library(dplyr)
+```
+
+```{r}
 library(rbenchmark)
 ```
 

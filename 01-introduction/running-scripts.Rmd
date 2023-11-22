@@ -1,6 +1,4 @@
-<!-- #region nteract={"transient": {"deleting": false}} -->
 # Running scripts
-<!-- #endregion -->
 
 ```{r}
 ## Running a script with and without echo

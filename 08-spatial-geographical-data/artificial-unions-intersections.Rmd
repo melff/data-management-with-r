@@ -1,19 +1,16 @@
-<!-- #region slideshow={"slide_type": "slide"} -->
 # Unions and intersections (of artificial geometric objects)
-<!-- #endregion -->
 
-<!-- #region slideshow={"slide_type": "fragment"} -->
+
 The following makes use of the *sf* package. You may need to install it from
 [CRAN](https://cran.r-project.org/package=sf) using the code
 `install.packages("sf")` if you want to run this on your computer. (The
 package is already installed on the notebook container, however.)
-<!-- #endregion -->
 
-```{r slideshow={'slide_type': 'fragment'}}
+```{r}
 library(sf)
 ```
 
-```{r slideshow={'slide_type': 'subslide'}}
+```{r}
 A <- rbind(
     c(0,0),
     c(2,0),
@@ -31,15 +28,15 @@ B <- rbind(
 B <- st_polygon(list(B))
 ```
 
-```{r slideshow={'slide_type': 'subslide'}}
+```{r}
 A
 ```
 
-```{r slideshow={'slide_type': 'fragment'}}
+```{r}
 B
 ```
 
-```{r slideshow={'slide_type': 'subslide'}}
+```{r}
 plot(A,xlim=c(-1,2),ylim=c(-1,2))
 plot(B,lty=2,add=TRUE)
 text(0,1.5,"A",pos=2)
@@ -47,35 +44,35 @@ text(1,-.5,"B",pos=4)
 text(.5,-1.5,"Two shapes A and B",pos=1)
 ```
 
-```{r slideshow={'slide_type': 'subslide'}}
+```{r}
 plot(st_union(A,B),col="gray70",xlim=c(-1,2),ylim=c(-1,2))
 plot(A,lty=3,add=TRUE)
 plot(B,lty=3,add=TRUE)
 text(.5,-1.5,"st_union(A,B)",pos=1)
 ```
 
-```{r slideshow={'slide_type': 'subslide'}}
+```{r}
 plot(A,lty=3,xlim=c(-1,2),ylim=c(-1,2))
 plot(B,lty=3,add=TRUE)
 plot(st_intersection(A,B),add=TRUE,col="gray70")
 text(.5,-1.5,"st_intersection(A,B)",pos=1)
 ```
 
-```{r slideshow={'slide_type': 'subslide'}}
+```{r}
 plot(st_difference(A,B),col="gray70",,xlim=c(-1,2),ylim=c(-1,2))
 plot(A,lty=3,add=TRUE)
 plot(B,lty=3,add=TRUE)
 text(.5,-1.5,"st_difference(A,B)",pos=1)
 ```
 
-```{r slideshow={'slide_type': 'subslide'}}
+```{r}
 plot(st_difference(B,A),col="gray70",,xlim=c(-1,2),ylim=c(-1,2))
 plot(A,lty=3,add=TRUE)
 plot(B,lty=3,add=TRUE)
 text(.5,-1.5,"st_difference(B,A)",pos=1)
 ```
 
-```{r slideshow={'slide_type': 'subslide'}}
+```{r}
 plot(st_sym_difference(A,B),col="gray70",,xlim=c(-1,2),ylim=c(-1,2))
 text(.5,-1.5,"st_sym_difference(A,B)",pos=1)
 ```

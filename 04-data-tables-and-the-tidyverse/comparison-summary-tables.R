@@ -4,8 +4,11 @@
 #' on the notebook container, however.)
 
 library(data.table)
+
 library(dplyr)
+
 library(memisc)
+
 library(rbenchmark)
 
 bench_matrix <- function(x){

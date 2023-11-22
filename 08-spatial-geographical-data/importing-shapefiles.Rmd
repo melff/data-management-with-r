@@ -26,23 +26,17 @@ unzip("ucdp-ged-poly-v-1-1-shape.zip",
           ))
 ```
 
-The following makes use of the *sf* package. You may need to install it from
-[CRAN](https://cran.r-project.org/package=sf) using the code
-`install.packages("sf")` if you want to run this on your computer. (The
-package is already installed on the notebook container, however.)
+The following code used to work with sf version 0.9.7 or sf version 1.0. However there now seem problems with some of backend libraries.
 
 ```{r}
 library(sf)
 # All three of the following lines are equivalent:
-UCDPGEDpoly <- st_read("UCDPGEDpoly.shx")
-```
-
-```{r}
-UCDPGEDpoly <- st_read("UCDPGEDpoly.shp")
-```
-
-```{r}
-UCDPGEDpoly <- st_read("UCDPGEDpoly.dbf")
+# UCDPGEDpoly <- st_read("UCDPGEDpoly.shx") # for sf version <= 0.9.7
+# UCDPGEDpoly <- st_read("UCDPGEDpoly.shp") # for sf version <= 0.9.7
+# UCDPGEDpoly <- st_read("UCDPGEDpoly.dbf") # for sf version <= 0.9.7
+UCDPGEDpoly <- read_sf("UCDPGEDpoly.shx") 
+UCDPGEDpoly <- read_sf("UCDPGEDpoly.shp") 
+UCDPGEDpoly <- read_sf("UCDPGEDpoly.dbf") 
 ```
 
 ```{r}

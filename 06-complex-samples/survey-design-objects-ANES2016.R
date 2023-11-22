@@ -12,9 +12,9 @@ library(memisc)
 #' the [ANES website for 2016](https://electionstudies.org/data-center/2016-time-series-stud/) and upload them to the virtual
 #' machine that runs this notebook. To do this, 
 #'
-#' 1. pull down the "File" menu item and select "Open"
-#' 2. An overview of the folder that contains the notebook opens. 
-#' 3. The folder view has a button labelled "Upload". Use this to upload the file that you downloaded from the ANES website.
+#' 1. open the file manager window of this site using [this link](/user-redirect/tree/05-social-science-surveys/)
+#' 2. use the button labelled "Upload" to upload the data set that you downloaded from the ANES website.
+#' 3. after uploading the file, it should appear in the list of files in the folder. Make sure that its name is`anes_timeseries_2016.sav`.
 #'
 #' Note that the uploaded data will disappear, once you "Quit" the notebook (and the Jupyter instance).
 

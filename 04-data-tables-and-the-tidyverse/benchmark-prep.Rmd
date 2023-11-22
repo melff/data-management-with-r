@@ -2,12 +2,15 @@
 
 ```{r}
 library(data.table)
+```
+
+```{r}
 library(tibble)
 ```
 
 ```{r}
-# Here we create 100 variables, each with 1,000,000 elements
-BData <- replicate(100,list(rnorm(1000000)))
+# Here we create 100 variables, each with 100,000 elements
+BData <- replicate(100,list(rnorm(100000)))
 names(BData) <- paste0("X",sprintf("%d",1:100))
 # We add a factor with 3 levels
 BData$a <- sample(letters[1:10],size=length(BData[[1]]),

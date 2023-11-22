@@ -28,7 +28,7 @@ aggregate(cbind(flng.brown,
 #' The *memisc* package has a somewhat more flexible variant of `aggregate()`, the function `Aggregate()`. Here we reproduce the results of `aggregate()`. You may need to install this package using `install.packages("memisc")` from 
 #' [CRAN](https://cran.r-project.org/package=memisc) if you want to run this on your computer. (The package is already installed on the notebook container, however.)
 
-library(memisc)
+suppressMessages(library(memisc))
 
 Aggregate(c(Brown=Mean(flng.brown),
             Cameron=Mean(flng.cameron),
@@ -38,6 +38,5 @@ Aggregate(c(Brown=Mean(flng.brown),
 
 #' However it also allows to used different summary functions.
 
-Var <- function(x,...) var(x,...,na.rm=TRUE)
 Aggregate(c(Mean(flng.brown),Var(flng.brown))~region+wave,
           data=bes2010feelings)

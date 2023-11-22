@@ -11,9 +11,9 @@ library(sf)
 
 st_layers("stpauls.osm")
 
-stpauls_lines <- st_read("stpauls.osm",layer="lines")
+stpauls_lines <- read_sf("stpauls.osm",layer="lines")
 
-stpauls_polygons <- st_read("stpauls.osm",layer="multipolygons")
+stpauls_polygons <- read_sf("stpauls.osm",layer="multipolygons")
 
 # Plotting the polygons ...
 plot(st_geometry(stpauls_polygons),

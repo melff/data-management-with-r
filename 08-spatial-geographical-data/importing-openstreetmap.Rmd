@@ -17,11 +17,11 @@ st_layers("stpauls.osm")
 ```
 
 ```{r}
-stpauls_lines <- st_read("stpauls.osm",layer="lines")
+stpauls_lines <- read_sf("stpauls.osm",layer="lines")
 ```
 
 ```{r}
-stpauls_polygons <- st_read("stpauls.osm",layer="multipolygons")
+stpauls_polygons <- read_sf("stpauls.osm",layer="multipolygons")
 ```
 
 ```{r}

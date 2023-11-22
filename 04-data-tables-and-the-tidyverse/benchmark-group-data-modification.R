@@ -5,8 +5,11 @@
 #' `install.packages(c("data.table","dplyr","memisc","rbenchmark"))` if you want to run this on your computer. (The packages are already installed on the notebook container, however.)
 
 library(data.table)
+
 library(memisc)
+
 library(dplyr)
+
 library(rbenchmark)
 
 load("BData.RData")

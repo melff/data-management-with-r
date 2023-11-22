@@ -1,5 +1,0 @@
-#!/bin/bash
-
-R -s -e 'install.packages(c("memisc","rbenchmark","cshapes"),repos="https://cloud.r-project.org")'
-
-npm install -g configurable-http-proxy

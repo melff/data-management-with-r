@@ -7,8 +7,17 @@ install them from [CRAN](https://cran.r-project.org) using the code
 
 ```{r}
 library(data.table)
+```
+
+```{r}
 library(memisc)
+```
+
+```{r}
 library(dplyr)
+```
+
+```{r}
 library(rbenchmark)
 ```
 
@@ -18,7 +27,7 @@ load("SData.RData")
 ```
 
 ```{r}
-grouped_summary_benchmark_1 <- benchmark(
+suppressMessages(grouped_summary_benchmark_1 <- benchmark(
     aggregate =
         aggregate(X1~a+b,data=BDataF, FUN=mean),
     `with + tapply` =
@@ -36,11 +45,11 @@ grouped_summary_benchmark_1 <- benchmark(
   replications = 100,
   order = NULL,
   relative = "user.self"
-)
+))
 ```
 
 ```{r}
-grouped_summary_benchmark_2 <- benchmark(
+suppressMessages(grouped_summary_benchmark_2 <- benchmark(
     aggregate =
         aggregate(X1~a+b,data=SDataF, FUN=mean),
     `with + tapply` =
@@ -58,11 +67,11 @@ grouped_summary_benchmark_2 <- benchmark(
   replications = 100,
   order = NULL,
   relative = "user.self"
-)
+))
 ```
 
 ```{r}
 save(grouped_summary_benchmark_1,
      grouped_summary_benchmark_2,
-     "grouped-summary-benchmark.RData")
+     file="grouped-summary-benchmark.RData")
 ```

@@ -20,7 +20,6 @@ head(ConstRes2010)
 
 # Reading in an SPSS "portable" file 
 ConstRes2010 <- read_por("ConstituencyResults2010.por") # This works with 'foreign', but not with 'haven'
-head(ConstRes2010)
 
 # Reading in a Stata file
 ConstRes2010 <- read_dta("ConstituencyResults2010.dta")

@@ -1,6 +1,4 @@
-<!-- #region nteract={"transient": {"deleting": false}} -->
 # Saving and loading objects
-<!-- #endregion -->
 
 ```{r}
 # In this example we create the two variables 'a' and 'b':

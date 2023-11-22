@@ -2,12 +2,14 @@
 
 
 The file CSV-files in folder "Manifesto Project"
-were downloaded from the [Manifesto Project website](https://manifesto-project.wzb.eu/datasets).
-Redistribution of the data is prohibited, so readers who want to reproduce the following will need to download their own copy of the data set and upload it to the virtual machine that runs this notebook. To do this,
+need to be downloaded from the [Manifesto Project website](https://manifesto-project.wzb.eu/datasets).
+Redistribution of the data is prohibited, so readers who want to reproduce the following will need to download their own copies of the data data files it to the virtual machine that runs this notebook. To do this,
 
-1. pull down the "File" menu item and select "Open"
-2. An overview of the folder that contains the notebook opens.
-3. The folder view has a button labelled "Upload". Use this to upload the file that you downloaded from the Manifesto Project website.
+1. open the file manager window of this site using [this link](/user-redirect/tree/09-text-as-data/)
+2. create a subfolder named "ManifestoProject" in the current folder "09-text-as-data"
+3. activate the subfolder "ManifestoProject" by clicking on it
+4. use the button labelled "Upload" to upload the files that you downloaded from the Manifesto Project website
+5. after uploading the files, they should appear in the list of files in the folder "ManifestoProject".
 
 Note that the uploaded data will disappear, once you "Quit" the notebook (and the Jupyter instance).
 
